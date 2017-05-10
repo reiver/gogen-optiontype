@@ -25,6 +25,9 @@ func (receiver NullableType) MarshalJSON() ([]byte, error) {
 	if NoneNullable() == receiver {
 		return nil, errNoneNullable
 	}
+	if Null() == receiver {
+		return json.Marshal(nil)
+	}
 
 	return json.Marshal(receiver.value)
 }
