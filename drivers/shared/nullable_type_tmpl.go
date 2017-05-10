@@ -13,7 +13,6 @@ import (
 	"bytes"
 	"database/sql/driver"
 	"encoding/json"
-	"fmt"
 )
 
 type NullableType struct {
@@ -23,8 +22,8 @@ type NullableType struct {
 }
 
 func (receiver NullableType) MarshalJSON() ([]byte, error) {
-	if None() == receiver {
-		return nil, errNullableNone
+	if NoneNullable() == receiver {
+		return nil, errNoneNullable
 	}
 
 	return json.Marshal(receiver.value)
@@ -46,14 +45,14 @@ func (receiver *NullableType) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	*receiver = Some(target)
+	*receiver = SomeNullable(target)
 
 	return nil
 }
 
 func (receiver NullableType) Value() (driver.Value, error) {
-	if None() == receiver {
-		return nil, errNullableNone
+	if NoneNullable() == receiver {
+		return nil, errNoneNullable
 	}
 	if Null() == receiver {
 		return nil, nil
