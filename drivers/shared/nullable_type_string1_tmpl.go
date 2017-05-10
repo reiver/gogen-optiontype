@@ -14,7 +14,7 @@ import (
 )
 
 func (receiver NullableType) String() string {
-	if None() == receiver {
+	if NoneNullable() == receiver {
 		return "{{.Pkg}}.NoneNullable()"
 	}
 	if Null() == receiver {

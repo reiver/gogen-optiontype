@@ -70,12 +70,12 @@ func TestNullableTypeValueNull(t *testing.T) {
 	actual, err := datum.Value()
 	if nil != err {
 		t.Errorf("Did not expect an error, but actually got one: (%T) %v", err, err)
-		continue
+		return
 	}
 
 	if expected := driver.Value(nil); expected != actual {
 		t.Errorf("Expected %v, but actually got %v", expected, actual)
-		continue
+		return
 	}
 }
 `

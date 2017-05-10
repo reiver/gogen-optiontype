@@ -79,7 +79,7 @@ func TestNullableTypeUnmarshalJSON(t *testing.T) {
 	}{
 		{
 			Datum: []byte("null"),
-			Expected:      Null(),,
+			Expected:      Null(),
 		},
 
 

@@ -182,12 +182,12 @@ func TestNullableTypeMarshalJSONull(t *testing.T) {
 	actualBytes, err := datum.MarshalJSON()
 	if nil != err {
 		t.Errorf("Did not expect an error, but actually got one: (%T) %v", err, err)
-		continue
+		return
 	}
 
 	if expected, actual := "null", string(actualBytes); expected != actual {
 		t.Errorf("Expected %q, but actually got %q", expected, actual)
-		continue
+		return
 	}
 }
 `
