@@ -126,7 +126,7 @@ func TestNullableTypeStringNoneNullable(t *testing.T) {
 
 func TestNullableTypeStringNull(t *testing.T) {
 
-	datum := None()
+	datum := Null()
 
 	if expected, actual := "{{.Pkg}}.Null()", datum.String(); expected != actual {
 		t.Errorf("Expected %q, but actually got %q", expected, actual)
