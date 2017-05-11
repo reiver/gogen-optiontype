@@ -8,7 +8,7 @@ import (
 
 func init() {
 	const typeName = "int64"
-	const fileName = "gen_nullable_type_int64_tmpl.go"
+	const fileName = "gen_nullable_type_int64.go"
 
 	renderer := gendriver.DefaultRenderer{
 		FileName: fileName,
