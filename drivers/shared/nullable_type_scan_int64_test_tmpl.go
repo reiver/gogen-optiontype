@@ -30,7 +30,117 @@ func TestNullableTypeScan(t *testing.T) {
 
 
 		{
-			Datum:            int64(math.MinInt64),
+			Datum:            Some(math.MinInt64),
+			Expected: SomeNullable(math.MinInt64),
+		},
+		{
+			Datum:            Some(-5),
+			Expected: SomeNullable(-5),
+		},
+		{
+			Datum:            Some(-4),
+			Expected: SomeNullable(-4),
+		},
+		{
+			Datum:            Some(-3),
+			Expected: SomeNullable(-3),
+		},
+		{
+			Datum:            Some(-2),
+			Expected: SomeNullable(-2),
+		},
+		{
+			Datum:            Some(-1),
+			Expected: SomeNullable(-1),
+		},
+		{
+			Datum:            Some(0),
+			Expected: SomeNullable(0),
+		},
+		{
+			Datum:            Some(1),
+			Expected: SomeNullable(1),
+		},
+		{
+			Datum:            Some(2),
+			Expected: SomeNullable(2),
+		},
+		{
+			Datum:            Some(3),
+			Expected: SomeNullable(3),
+		},
+		{
+			Datum:            Some(4),
+			Expected: SomeNullable(4),
+		},
+		{
+			Datum:            Some(5),
+			Expected: SomeNullable(5),
+		},
+		{
+			Datum:            Some(math.MaxInt64),
+			Expected: SomeNullable(math.MaxInt64),
+		},
+
+
+
+		{
+			Datum:    SomeNullable(math.MinInt64),
+			Expected: SomeNullable(math.MinInt64),
+		},
+		{
+			Datum:    SomeNullable(-5),
+			Expected: SomeNullable(-5),
+		},
+		{
+			Datum:    SomeNullable(-4),
+			Expected: SomeNullable(-4),
+		},
+		{
+			Datum:    SomeNullable(-3),
+			Expected: SomeNullable(-3),
+		},
+		{
+			Datum:    SomeNullable(-2),
+			Expected: SomeNullable(-2),
+		},
+		{
+			Datum:    SomeNullable(-1),
+			Expected: SomeNullable(-1),
+		},
+		{
+			Datum:    SomeNullable(0),
+			Expected: SomeNullable(0),
+		},
+		{
+			Datum:    SomeNullable(1),
+			Expected: SomeNullable(1),
+		},
+		{
+			Datum:    SomeNullable(2),
+			Expected: SomeNullable(2),
+		},
+		{
+			Datum:    SomeNullable(3),
+			Expected: SomeNullable(3),
+		},
+		{
+			Datum:    SomeNullable(4),
+			Expected: SomeNullable(4),
+		},
+		{
+			Datum:    SomeNullable(5),
+			Expected: SomeNullable(5),
+		},
+		{
+			Datum:    SomeNullable(math.MaxInt64),
+			Expected: SomeNullable(math.MaxInt64),
+		},
+
+
+
+		{
+			Datum:           int64(math.MinInt64),
 			Expected: SomeNullable(math.MinInt64),
 		},
 		{

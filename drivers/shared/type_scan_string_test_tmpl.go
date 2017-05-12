@@ -22,6 +22,25 @@ func TestTypeScan(t *testing.T) {
 		Expected Type
 	}{
 		{
+			Datum:    Some("apple"),
+			Expected: Some("apple"),
+		},
+		{
+			Datum:    Some("BANANA"),
+			Expected: Some("BANANA"),
+		},
+		{
+			Datum:    Some("Cherry"),
+			Expected: Some("Cherry"),
+		},
+		{
+			Datum:    Some("dATE"),
+			Expected: Some("dATE"),
+		},
+
+
+
+		{
 			Datum:         "apple",
 			Expected: Some("apple"),
 		},
@@ -55,6 +74,13 @@ func TestTypeScan(t *testing.T) {
 		{
 			Datum:  []byte("dATE"),
 			Expected: Some("dATE"),
+		},
+
+
+
+		{
+			Datum:    Some("Hello world!"),
+			Expected: Some("Hello world!"),
 		},
 
 

@@ -30,6 +30,44 @@ func TestNullableTypeScan(t *testing.T) {
 
 
 		{
+			Datum:            Some("apple"),
+			Expected: SomeNullable("apple"),
+		},
+		{
+			Datum:            Some("BANANA"),
+			Expected: SomeNullable("BANANA"),
+		},
+		{
+			Datum:            Some("Cherry"),
+			Expected: SomeNullable("Cherry"),
+		},
+		{
+			Datum:            Some("dATE"),
+			Expected: SomeNullable("dATE"),
+		},
+
+
+
+		{
+			Datum:    SomeNullable("apple"),
+			Expected: SomeNullable("apple"),
+		},
+		{
+			Datum:    SomeNullable("BANANA"),
+			Expected: SomeNullable("BANANA"),
+		},
+		{
+			Datum:    SomeNullable("Cherry"),
+			Expected: SomeNullable("Cherry"),
+		},
+		{
+			Datum:    SomeNullable("dATE"),
+			Expected: SomeNullable("dATE"),
+		},
+
+
+
+		{
 			Datum:                 "apple",
 			Expected: SomeNullable("apple"),
 		},

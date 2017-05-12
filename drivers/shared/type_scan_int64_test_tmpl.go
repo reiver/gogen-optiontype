@@ -23,6 +23,61 @@ func TestTypeScan(t *testing.T) {
 		Expected Type
 	}{
 		{
+			Datum:    Some(math.MinInt64),
+			Expected: Some(math.MinInt64),
+		},
+		{
+			Datum:    Some(-5),
+			Expected: Some(-5),
+		},
+		{
+			Datum:    Some(-4),
+			Expected: Some(-4),
+		},
+		{
+			Datum:    Some(-3),
+			Expected: Some(-3),
+		},
+		{
+			Datum:    Some(-2),
+			Expected: Some(-2),
+		},
+		{
+			Datum:    Some(-1),
+			Expected: Some(-1),
+		},
+		{
+			Datum:    Some(0),
+			Expected: Some(0),
+		},
+		{
+			Datum:    Some(1),
+			Expected: Some(1),
+		},
+		{
+			Datum:    Some(2),
+			Expected: Some(2),
+		},
+		{
+			Datum:    Some(3),
+			Expected: Some(3),
+		},
+		{
+			Datum:    Some(4),
+			Expected: Some(4),
+		},
+		{
+			Datum:    Some(5),
+			Expected: Some(5),
+		},
+		{
+			Datum:    Some(math.MaxInt64),
+			Expected: Some(math.MaxInt64),
+		},
+
+
+
+		{
 			Datum:    int64(math.MinInt64),
 			Expected:  Some(math.MinInt64),
 		},
