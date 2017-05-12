@@ -20,6 +20,9 @@ func (receiver *Type) Scan(src interface{}) error {
 	}
 
 	switch t := src.(type) {
+	case Type:
+		*receiver = t
+		return nil
 	case int64:
 		*receiver = Some(t)
 		return nil

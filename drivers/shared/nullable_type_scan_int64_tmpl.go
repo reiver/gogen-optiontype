@@ -25,6 +25,9 @@ func (receiver *NullableType) Scan(src interface{}) error {
 	}
 
 	switch t := src.(type) {
+	case NullableType:
+		*receiver = t
+		return nil
 	case int64:
 		*receiver = SomeNullable(t)
 		return nil
