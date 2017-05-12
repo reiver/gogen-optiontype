@@ -47,7 +47,7 @@ func (receiver *NullableType) Scan(src interface{}) error {
 		*receiver = SomeNullable(i64)
 		return nil
 	default:
-		return fmt.Errorf("Cannot scan something of type %T into an {{.Pkg}}.Type.", src)
+		return fmt.Errorf("Cannot scan something of type %T into an %T.", src, *receiver)
 	}
 }
 `

@@ -30,7 +30,7 @@ func (receiver *Type) Scan(src interface{}) error {
 		*receiver = Some(s)
 		return nil
 	default:
-		return fmt.Errorf("Cannot scan something of type %T into an {{.Pkg}}.Type.", src)
+		return fmt.Errorf("Cannot scan something of type %T into an %T.", src, *receiver)
 	}
 }
 `
