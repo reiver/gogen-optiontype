@@ -28,6 +28,18 @@ func (receiver *NullableType) Scan(src interface{}) error {
 	case NullableType:
 		*receiver = t
 		return nil
+	case Type:
+		switch t {
+		case None():
+			*receiver = NoneNullable()
+		default:
+			datum, err := t.Int64()
+			if nil != err {
+				return fmt.Errorf("Problem unwrapping %T: (%T) %v", t, err, err)
+			}
+			*receiver = SomeNullable(datum)
+		}
+		return nil
 	case int64:
 		*receiver = SomeNullable(t)
 		return nil
