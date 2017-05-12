@@ -30,6 +30,13 @@ func TestNullableTypeScan(t *testing.T) {
 
 
 		{
+			Datum:    None(),
+			Expected: NoneNullable(),
+		},
+
+
+
+		{
 			Datum:            Some("apple"),
 			Expected: SomeNullable("apple"),
 		},
