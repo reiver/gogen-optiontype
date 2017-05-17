@@ -14,12 +14,14 @@ func main() {
 
 	var flags struct {
 		NoTests bool
+		OneFile bool
 		Pkg     string
 		Trial   bool
 		Type    string
 	}
 	{
-		flag.BoolVar(&flags.NoTests, "no-tests", false,  "No tests generated.. Ex: --no-tests")
+		flag.BoolVar(&flags.NoTests, "no-tests", false,  "No tests generated. Ex: --no-tests")
+		flag.BoolVar(&flags.OneFile, "one-file", false,  "One file is generated (not counting tests). Ex: --one-file")
 		flag.StringVar(&flags.Pkg,   "pkg",      "main", "Package name. Ex: --pkg=main")
 		flag.BoolVar(&flags.Trial,   "trial",    false,  "Trial run. Ex: --trial")
 		flag.StringVar(&flags.Type,  "type",     "",     "Type. Ex: --type=int64")
@@ -41,10 +43,12 @@ func main() {
 
 		iterator, err := registry.Iterator(struct{
 			NoTests bool
+			OneFile bool
 			Pkg     string
 			Type    string
 		}{
 			NoTests: flags.NoTests,
+			OneFile: flags.OneFile,
 			Pkg:     flags.Pkg,
 			Type:    flags.Type,
 		})

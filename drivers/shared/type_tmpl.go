@@ -1,21 +1,17 @@
 package shared
 
-const (
-	TypeTmpl =
-`package {{.Pkg}}
-
-/*
- * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
- * THIS FILE SHOULD NOT BE EDITED BY HAND
- */
-
-import (
-	"bytes"
-	"database/sql/driver"
-	"encoding/json"
-	"fmt"
+var (
+	TypeImports = map[string]string{
+		"bytes":               "",
+		"database/sql/driver": "",
+		"encoding/json":       "",
+		"fmt":                 "",
+	}
 )
 
+const (
+	TypeTmpl =
+`
 type Type struct {
 	loaded bool
 	value  {{.Type}}

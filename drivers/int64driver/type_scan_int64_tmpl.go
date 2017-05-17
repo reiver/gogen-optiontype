@@ -11,8 +11,9 @@ func init() {
 	const fileName = "gen_type_scan_int64.go"
 
 	renderer := gendriver.DefaultRenderer{
-		FileName: fileName,
-		FileTmpl: shared.TypeScanInt64Tmpl,
+		FileName:    fileName,
+		FileImports: shared.TypeScanInt64Imports,
+		FileTmpl:    shared.TypeScanInt64Tmpl,
 	}
 
 

@@ -11,8 +11,9 @@ func init() {
 	const fileName = "gen_type_string.go"
 
 	renderer := gendriver.DefaultRenderer{
-		FileName: fileName,
-		FileTmpl: shared.TypeStringTmpl,
+		FileName:    fileName,
+		FileImports: shared.TypeStringImports,
+		FileTmpl:    shared.TypeStringTmpl,
 	}
 
 

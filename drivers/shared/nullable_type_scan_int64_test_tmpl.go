@@ -2,13 +2,7 @@ package shared
 
 const (
 	NullableTypeScanInt64TestTmpl =
-`package {{.Pkg}}
-
-/*
- * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
- * THIS FILE SHOULD NOT BE EDITED BY HAND
- */
-
+`
 import (
 	"fmt"
 	"math"

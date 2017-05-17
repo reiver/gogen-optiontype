@@ -1,19 +1,15 @@
 package shared
 
-const (
-	NullableTypeScanInt64Tmpl =
-`package {{.Pkg}}
-
-/*
- * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
- * THIS FILE SHOULD NOT BE EDITED BY HAND
- */
-
-import (
-	"fmt"
-	"strconv"
+var (
+	NullableTypeScanInt64Imports = map[string]string{
+		"fmt":     "",
+		"strconv": "",
+	}
 )
 
+const (
+	NullableTypeScanInt64Tmpl =
+`
 func (receiver *NullableType) Scan(src interface{}) error {
 	if nil == receiver {
 		return errNilReceiver

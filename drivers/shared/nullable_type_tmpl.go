@@ -1,20 +1,16 @@
 package shared
 
-const (
-	NullableTypeTmpl =
-`package {{.Pkg}}
-
-/*
- * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
- * THIS FILE SHOULD NOT BE EDITED BY HAND
- */
-
-import (
-	"bytes"
-	"database/sql/driver"
-	"encoding/json"
+var (
+	NullableTypeImports = map[string]string{
+		"bytes":               "",
+		"database/sql/driver": "",
+		"encoding/json":       "",
+	}
 )
 
+const (
+	NullableTypeTmpl =
+`
 type NullableType struct {
 	loaded bool
 	null   bool

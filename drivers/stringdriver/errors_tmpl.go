@@ -11,8 +11,9 @@ func init() {
 	const fileName = "gen_errors.go"
 
 	renderer := gendriver.DefaultRenderer{
-		FileName: fileName,
-		FileTmpl: shared.ErrorsTmpl,
+		FileName:    fileName,
+		FileImports: shared.ErrorsImports,
+		FileTmpl:    shared.ErrorsTmpl,
 	}
 
 

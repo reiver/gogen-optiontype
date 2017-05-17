@@ -7,6 +7,7 @@ type Registrar interface {
 
 type IteratorParams struct {
 	NoTests bool
+	OneFile bool
 	Pkg     string
 	Type    string
 }

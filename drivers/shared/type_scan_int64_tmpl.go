@@ -1,19 +1,15 @@
 package shared
 
-const (
-	TypeScanInt64Tmpl =
-`package {{.Pkg}}
-
-/*
- * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
- * THIS FILE SHOULD NOT BE EDITED BY HAND
- */
-
-import (
-	"fmt"
-	"strconv"
+var (
+	TypeScanInt64Imports = map[string]string{
+		"fmt":     "",
+		"strconv": "",
+	}
 )
 
+const (
+	TypeScanInt64Tmpl =
+`
 func (receiver *Type) Scan(src interface{}) error {
 	if nil == receiver {
 		return errNilReceiver

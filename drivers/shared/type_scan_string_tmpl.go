@@ -1,18 +1,14 @@
 package shared
 
-const (
-	TypeScanStringTmpl =
-`package {{.Pkg}}
-
-/*
- * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
- * THIS FILE SHOULD NOT BE EDITED BY HAND
- */
-
-import (
-	"fmt"
+var (
+	TypeScanStringImports = map[string]string{
+		"fmt":"",
+	}
 )
 
+const (
+	TypeScanStringTmpl =
+`
 func (receiver *Type) Scan(src interface{}) error {
 	if nil == receiver {
 		return errNilReceiver
