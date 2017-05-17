@@ -13,14 +13,16 @@ import (
 func main() {
 
 	var flags struct {
+		NoTests bool
 		Pkg     string
 		Trial   bool
 		Type    string
 	}
 	{
-		flag.StringVar(&flags.Pkg,  "pkg",   "main", "Package name. Ex: --pkg=main")
-		flag.BoolVar(&flags.Trial,  "trial", false,  "Trial run. Ex: --trial")
-		flag.StringVar(&flags.Type, "type",  "",     "Type. Ex: --type=int64")
+		flag.BoolVar(&flags.NoTests, "no-tests", false,  "No tests generated.. Ex: --no-tests")
+		flag.StringVar(&flags.Pkg,   "pkg",      "main", "Package name. Ex: --pkg=main")
+		flag.BoolVar(&flags.Trial,   "trial",    false,  "Trial run. Ex: --trial")
+		flag.StringVar(&flags.Type,  "type",     "",     "Type. Ex: --type=int64")
 
 		flag.Parse()
 
@@ -38,11 +40,13 @@ func main() {
 		}
 
 		iterator, err := registry.Iterator(struct{
-			Pkg  string
-			Type string
+			NoTests bool
+			Pkg     string
+			Type    string
 		}{
-			Pkg:  flags.Pkg,
-			Type: flags.Type,
+			NoTests: flags.NoTests,
+			Pkg:     flags.Pkg,
+			Type:    flags.Type,
 		})
 		if nil != err {
 			fmt.Fprintf(os.Stderr, "ERROR: This should not happen. Could get an iterator from the registry, because: %v\n", err)

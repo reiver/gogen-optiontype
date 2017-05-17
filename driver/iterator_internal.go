@@ -23,11 +23,11 @@ func (receiver *internalIterator) copyFrom(p []Renderer) error {
 	receiver.mutex.Lock()
 	defer receiver.mutex.Unlock()
 
-	if nil != receiver.data {
-		return errInternalError
+	if nil == p {
+		return nil
 	}
 
-	receiver.data = append([]Renderer(nil), p...)
+	receiver.data = append(receiver.data, p...)
 
 	return nil
 }

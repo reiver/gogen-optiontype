@@ -2,10 +2,11 @@ package gendriver
 
 type Registrar interface {
 	Iterator(IteratorParams) (Iterator, error)
-	Register(string, Renderer) error
+	Register(string, bool, Renderer) error
 }
 
 type IteratorParams struct {
-	Pkg  string
-	Type string
+	NoTests bool
+	Pkg     string
+	Type    string
 }

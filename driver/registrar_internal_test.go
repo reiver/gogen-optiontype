@@ -11,6 +11,7 @@ func TestInternalRegistrarRegister(t *testing.T) {
 	tests := []struct{
 		Data []struct{
 			TypeName string
+			IsTest   bool
 			FileName string
 			FileTmpl string
 			Expected string
@@ -19,12 +20,14 @@ func TestInternalRegistrarRegister(t *testing.T) {
 		{
 			Data: []struct{
 				TypeName string
+				IsTest   bool
 				FileName string
 				FileTmpl string
 				Expected string
 			}{
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 					Expected: `package thusid`+"\n\n"+`// This is a test for int64`,
@@ -34,19 +37,22 @@ func TestInternalRegistrarRegister(t *testing.T) {
 		{
 			Data: []struct{
 				TypeName string
+				IsTest   bool
 				FileName string
 				FileTmpl string
 				Expected string
 			}{
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 					Expected: `package thusid`+"\n\n"+`// This is a test for int64`,
 				},
 				{
 					TypeName: "int64",
-					FileName: "banana.go",
+					IsTest:   true,
+					FileName: "banana_test.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 					Expected: `package thusid`+"\n\n"+`// This is a test for int64`,
 				},
@@ -55,22 +61,26 @@ func TestInternalRegistrarRegister(t *testing.T) {
 		{
 			Data: []struct{
 				TypeName string
+				IsTest   bool
 				FileName string
 				FileTmpl string
 				Expected string
 			}{
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
-					FileName: "banana.go",
+					IsTest:   true,
+					FileName: "banana_test.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "cherry.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -79,204 +89,32 @@ func TestInternalRegistrarRegister(t *testing.T) {
 		{
 			Data: []struct{
 				TypeName string
+				IsTest   bool
 				FileName string
 				FileTmpl string
 				Expected string
 			}{
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
-					FileName: "banana.go",
+					IsTest:   true,
+					FileName: "banana_test.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "cherry.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
-					FileName: "date.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-			},
-		},
-
-
-
-		{
-			Data: []struct{
-				TypeName string
-				FileName string
-				FileTmpl string
-				Expected string
-			}{
-				{
-					TypeName: "int64",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "banana.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "cherry.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "date.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-
-
-				{
-					TypeName: "string",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-			},
-		},
-		{
-			Data: []struct{
-				TypeName string
-				FileName string
-				FileTmpl string
-				Expected string
-			}{
-				{
-					TypeName: "int64",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "banana.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "cherry.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "date.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-
-
-				{
-					TypeName: "string",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "string",
-					FileName: "banana.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-			},
-		},
-		{
-			Data: []struct{
-				TypeName string
-				FileName string
-				FileTmpl string
-				Expected string
-			}{
-				{
-					TypeName: "int64",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "banana.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "cherry.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "date.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-
-
-				{
-					TypeName: "string",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "string",
-					FileName: "banana.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "string",
-					FileName: "cherry.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-			},
-		},
-		{
-			Data: []struct{
-				TypeName string
-				FileName string
-				FileTmpl string
-				Expected string
-			}{
-				{
-					TypeName: "int64",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "banana.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "cherry.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "int64",
-					FileName: "date.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-
-
-				{
-					TypeName: "string",
-					FileName: "apple.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "string",
-					FileName: "banana.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "string",
-					FileName: "cherry.go",
-					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
-				},
-				{
-					TypeName: "string",
+					IsTest:   false,
 					FileName: "date.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -288,27 +126,32 @@ func TestInternalRegistrarRegister(t *testing.T) {
 		{
 			Data: []struct{
 				TypeName string
+				IsTest   bool
 				FileName string
 				FileTmpl string
 				Expected string
 			}{
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
-					FileName: "banana.go",
+					IsTest:   true,
+					FileName: "banana_test.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "cherry.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "date.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -316,21 +159,232 @@ func TestInternalRegistrarRegister(t *testing.T) {
 
 				{
 					TypeName: "string",
+					IsTest:   false,
+					FileName: "apple.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+			},
+		},
+		{
+			Data: []struct{
+				TypeName string
+				IsTest   bool
+				FileName string
+				FileTmpl string
+				Expected string
+			}{
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "apple.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "cherry.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "date.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+
+
+				{
+					TypeName: "string",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "string",
-					FileName: "banana.go",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+			},
+		},
+		{
+			Data: []struct{
+				TypeName string
+				IsTest   bool
+				FileName string
+				FileTmpl string
+				Expected string
+			}{
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "apple.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "cherry.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "date.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+
+
+				{
+					TypeName: "string",
+					IsTest:   false,
+					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "string",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "string",
+					IsTest:   false,
+					FileName: "cherry.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+			},
+		},
+		{
+			Data: []struct{
+				TypeName string
+				IsTest   bool
+				FileName string
+				FileTmpl string
+				Expected string
+			}{
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "apple.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "cherry.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "date.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+
+
+				{
+					TypeName: "string",
+					IsTest:   false,
+					FileName: "apple.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "string",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "string",
+					IsTest:   false,
 					FileName: "cherry.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "string",
+					IsTest:   false,
+					FileName: "date.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+			},
+		},
+
+
+
+		{
+			Data: []struct{
+				TypeName string
+				IsTest   bool
+				FileName string
+				FileTmpl string
+				Expected string
+			}{
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "apple.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "cherry.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "int64",
+					IsTest:   false,
+					FileName: "date.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+
+
+				{
+					TypeName: "string",
+					IsTest:   false,
+					FileName: "apple.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "string",
+					IsTest:   true,
+					FileName: "banana_test.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "string",
+					IsTest:   false,
+					FileName: "cherry.go",
+					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
+				},
+				{
+					TypeName: "string",
+					IsTest:   false,
 					FileName: "date.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -338,6 +392,7 @@ func TestInternalRegistrarRegister(t *testing.T) {
 
 				{
 					TypeName: "float64",
+					IsTest:   false,
 					FileName: "something.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -346,18 +401,21 @@ func TestInternalRegistrarRegister(t *testing.T) {
 		{
 			Data: []struct{
 				TypeName string
+				IsTest   bool
 				FileName string
 				FileTmpl string
 				Expected string
 			}{
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "int64",
-					FileName: "banana.go",
+					IsTest:   true,
+					FileName: "banana_test.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
@@ -367,6 +425,7 @@ func TestInternalRegistrarRegister(t *testing.T) {
 				},
 				{
 					TypeName: "int64",
+					IsTest:   false,
 					FileName: "date.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -374,21 +433,25 @@ func TestInternalRegistrarRegister(t *testing.T) {
 
 				{
 					TypeName: "string",
+					IsTest:   false,
 					FileName: "apple.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "string",
-					FileName: "banana.go",
+					IsTest:   true,
+					FileName: "banana_test.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "string",
+					IsTest:   false,
 					FileName: "cherry.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "string",
+					IsTest:   false,
 					FileName: "date.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -396,11 +459,13 @@ func TestInternalRegistrarRegister(t *testing.T) {
 
 				{
 					TypeName: "float64",
+					IsTest:   false,
 					FileName: "something.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
 				{
 					TypeName: "float64",
+					IsTest:   true,
 					FileName: "something_test.go",
 					FileTmpl: `package {{.Pkg}}`+"\n\n"+`// This is a test for {{.Type}}`,
 				},
@@ -413,9 +478,17 @@ func TestInternalRegistrarRegister(t *testing.T) {
 
 		registry := new(internalRegistrar)
 		{
-			m := registry.m
+			codes := registry.codes
 
-			if expected, actual := 0, len(m); expected != actual {
+			if expected, actual := 0, len(codes); expected != actual {
+				t.Errorf("For test #%d, expected %d, but actually got %d.", testNumber, expected, actual)
+				continue
+			}
+		}
+		{
+			tests := registry.tests
+
+			if expected, actual := 0, len(tests); expected != actual {
 				t.Errorf("For test #%d, expected %d, but actually got %d.", testNumber, expected, actual)
 				continue
 			}
@@ -431,7 +504,7 @@ func TestInternalRegistrarRegister(t *testing.T) {
 					FileTmpl: datum.FileTmpl,
 				}
 
-				err := registrar.Register(datum.TypeName, renderer)
+				err := registrar.Register(datum.TypeName, datum.IsTest, renderer)
 				if nil != err {
 					t.Errorf("For test #%d and datum #%d, did not expect an error, but actually got one: (%T) %v", testNumber, datumNumber, err, err)
 					continue

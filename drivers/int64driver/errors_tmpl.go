@@ -16,7 +16,7 @@ func init() {
 	}
 
 
-	if err := gendriver.Registry.Register(typeName, renderer); nil != err {
+	if err := gendriver.Registry.Register(typeName, false, renderer); nil != err {
 		panic(err)
 	}
 }

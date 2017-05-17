@@ -5,7 +5,8 @@ import (
 )
 
 type internalRegistrar struct {
-	m map[string][]Renderer
+	codes map[string][]Renderer
+	tests map[string][]Renderer
 	mutex sync.RWMutex
 }
 
@@ -17,19 +18,26 @@ func (receiver *internalRegistrar) Iterator(params IteratorParams) (Iterator, er
 	receiver.mutex.RLock()
 	defer receiver.mutex.RUnlock()
 
-	m := receiver.m
-	if nil == m {
+	codes := receiver.codes
+	tests := receiver.tests
+	if nil == codes && nil == tests {
 		var iterator Iterator = new(internalIterator)
 		return iterator, nil
 	}
-	s, ok := m[params.Type]
-	if !ok {
+	c, cOK := codes[params.Type]
+	t, tOK := tests[params.Type]
+	if !cOK && !tOK {
 		return nil, errNotFound
 	}
 
 	var it internalIterator
-	if err := it.copyFrom(s); nil != err {
+	if err := it.copyFrom(c); nil != err {
 		return nil, errInternalError
+	}
+	if !params.NoTests {
+		if err := it.copyFrom(t); nil != err {
+			return nil, errInternalError
+		}
 	}
 
 	var iterator Iterator = &it
@@ -37,7 +45,7 @@ func (receiver *internalRegistrar) Iterator(params IteratorParams) (Iterator, er
 	return iterator, nil
 }
 
-func (receiver *internalRegistrar) Register(typeName string, renderer Renderer) error {
+func (receiver *internalRegistrar) Register(typeName string, isTest bool, renderer Renderer) error {
 	if nil == receiver {
 		return errNilReceiver
 	}
@@ -45,14 +53,26 @@ func (receiver *internalRegistrar) Register(typeName string, renderer Renderer) 
 	receiver.mutex.Lock()
 	defer receiver.mutex.Unlock()
 
-	if nil == receiver.m {
-		receiver.m = map[string][]Renderer{}
-	}
-	if _, ok := receiver.m[typeName]; !ok {
-		receiver.m[typeName] = []Renderer{}
+	if !isTest {
+		if nil == receiver.codes {
+			receiver.codes = map[string][]Renderer{}
+		}
+		if _, ok := receiver.codes[typeName]; !ok {
+			receiver.codes[typeName] = []Renderer{}
+		}
+
+		receiver.codes[typeName] = append(receiver.codes[typeName], renderer)
+	} else {
+		if nil == receiver.tests {
+			receiver.tests = map[string][]Renderer{}
+		}
+		if _, ok := receiver.tests[typeName]; !ok {
+			receiver.tests[typeName] = []Renderer{}
+		}
+
+		receiver.tests[typeName] = append(receiver.tests[typeName], renderer)
 	}
 
-	receiver.m[typeName] = append(receiver.m[typeName], renderer)
 
 	return nil
 }
