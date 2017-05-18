@@ -22,9 +22,7 @@ func TestInternalIterator(t *testing.T) {
 				DefaultRenderer{
 					FileName: "apple.go",
 					FileTmpl:
-`package {{.Pkg}}
-
-type Type struct {
+`type Type struct {
 	value {{.Type}}
 }
 `,
@@ -33,6 +31,11 @@ type Type struct {
 			Expected: map[string]string{
 				"apple.go":
 `package thatid
+
+/*
+ * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
+ * THIS FILE SHOULD NOT BE EDITED BY HAND
+ */
 
 type Type struct {
 	value int64
@@ -50,9 +53,7 @@ type Type struct {
 				DefaultRenderer{
 					FileName: "banana.go",
 					FileTmpl:
-`package {{.Pkg}}
-
-type Type struct {
+`type Type struct {
 	value {{.Type}}
 }
 `,
@@ -60,9 +61,7 @@ type Type struct {
 				DefaultRenderer{
 					FileName: "banana_test.go",
 					FileTmpl:
-`package {{.Pkg}}
-
-import (
+`import (
 	"testing"
 )
 
@@ -76,12 +75,22 @@ func TestType{{.Type}}(t *testing.T) {
 				"banana.go":
 `package thoseid
 
+/*
+ * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
+ * THIS FILE SHOULD NOT BE EDITED BY HAND
+ */
+
 type Type struct {
 	value string
 }
 `,
 				"banana_test.go":
 `package thoseid
+
+/*
+ * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
+ * THIS FILE SHOULD NOT BE EDITED BY HAND
+ */
 
 import (
 	"testing"
@@ -138,14 +147,14 @@ func TestTypestring(t *testing.T) {
 					}
 					if expected, actual := int64(len(test.Expected[actualFileName])), n; expected != actual {
 						t.Errorf("For test #%d and iteration count #%d, expected %d, but actually got %d.", testNumber, numIterations, expected, actual)
-						t.Errorf("EXPECTED: %q", test.Expected[actualFileName])
-						t.Errorf("ACTUAL:   %q", buffer.String())
+						t.Errorf("\nEXPECTED:\n%q", test.Expected[actualFileName])
+						t.Errorf("\nACTUAL:\n%q", buffer.String())
 						continue Loop
 					}
 					if expected, actual := test.Expected[actualFileName], buffer.String(); expected != actual {
 						t.Errorf("For test #%d and iteration count #%d...", testNumber, numIterations)
-						t.Errorf("EXPECTED: %q", expected)
-						t.Errorf("ACTUAL:   %q", actual)
+						t.Errorf("\nEXPECTED:\n%q", expected)
+						t.Errorf("\nACTUAL:\n%q", actual)
 						continue Loop
 					}
 				}
