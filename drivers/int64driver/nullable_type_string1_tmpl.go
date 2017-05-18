@@ -11,6 +11,7 @@ func init() {
 	const fileName = "gen_nullable_type_string1.go"
 
 	renderer := gendriver.DefaultRenderer{
+		FileIsNotTest: true,
 		FileName:    fileName,
 		FileImports: shared.NullableTypeString1Imports,
 		FileTmpl:    shared.NullableTypeString1Tmpl,

@@ -10,10 +10,13 @@ import (
 // The returned io.WriterTo is meant to create a single Go source code file.
 // The returned file name is meant to be the name of that single Go source code file.
 type Renderer interface {
+	Imports() map[string]string
+	IsTest() bool
 	WriterTo(RendererParams) (string, io.WriterTo, error)
 }
 
 type RendererParams struct {
-	Pkg  string
-	Type string
+	NoHeader bool
+	Pkg      string
+	Type     string
 }

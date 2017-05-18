@@ -11,6 +11,7 @@ func init() {
 	const fileName = "gen_type_scan_string.go"
 
 	renderer := gendriver.DefaultRenderer{
+		FileIsNotTest: true,
 		FileName:    fileName,
 		FileImports: shared.TypeScanStringImports,
 		FileTmpl:    shared.TypeScanStringTmpl,

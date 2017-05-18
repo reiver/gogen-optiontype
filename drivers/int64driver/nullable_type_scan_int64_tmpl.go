@@ -11,6 +11,7 @@ func init() {
 	const fileName = "gen_nullable_type_scan_int64.go"
 
 	renderer := gendriver.DefaultRenderer{
+		FileIsNotTest: true,
 		FileName:    fileName,
 		FileImports: shared.NullableTypeScanInt64Imports,
 		FileTmpl:    shared.NullableTypeScanInt64Tmpl,
