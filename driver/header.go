@@ -5,6 +5,7 @@ import (
 
 	"fmt"
 	"io"
+	"sort"
 )
 
 const (
@@ -23,8 +24,17 @@ func WriteHeader(w io.Writer, imports map[string]string, params interface{}) {
 	tmpl.Fprintt(w, headerTmpl, params)
 
 	if nil != imports && 0 < len(imports) {
+		paths := []string{}
+		for path, _ := range imports {
+			paths = append(paths, path)
+		}
+		sort.Strings(paths)
+
 		io.WriteString(w, "import (\n")
-		for path, name := range imports {
+		for _, path := range paths {
+
+			name := imports[path]
+
 			switch name {
 			case "":
 				io.WriteString(w, fmt.Sprintf("\t%q\n", path))
