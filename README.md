@@ -14,6 +14,23 @@ package itemid
 ```go
 package thingid
 
-//go:generate gogen-optiontype --pkg=thingid --type=string
+//go:generate gogen-optiontype --pkg=thingid --type=string --one-file
 
 ```
+
+```go
+package productid
+
+//go:generate gogen-optiontype --pkg=thingid --type=string --one-file --no-tests
+
+```
+
+And then run:
+```
+go generate
+```
+or:
+```
+gb generate
+```
+(If you are using [GB](https://getgb.io/).)
