@@ -17,9 +17,7 @@ func TestDefaultRenderer(t *testing.T) {
 		{
 			FileName: "apple.go",
 			FileTmpl:
-`package {{.Pkg}}
-
-type Type struct {
+`type Type struct {
 	value {{.Type}}
 }
 `,
@@ -30,6 +28,11 @@ type Type struct {
 			Expected:
 `package itemid
 
+/*
+ * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
+ * THIS FILE SHOULD NOT BE EDITED BY HAND
+ */
+
 type Type struct {
 	value int64
 }
@@ -39,9 +42,7 @@ type Type struct {
 		{
 			FileName: "banana_test.go",
 			FileTmpl:
-`package {{.Pkg}}
-
-import (
+`import (
 	"testing"
 )
 
@@ -57,6 +58,11 @@ func TestType{{.Type}}(t *testing.T) {
 			},
 			Expected:
 `package somethingid
+
+/*
+ * CODE GENERATED AUTOMATICALLY WITH https://github.com/reiver/gogen-optiontype
+ * THIS FILE SHOULD NOT BE EDITED BY HAND
+ */
 
 import (
 	"testing"
@@ -101,12 +107,17 @@ func TestTypestring(t *testing.T) {
 
 			if expected, actual := n, int64(len(test.Expected)); expected != actual {
 				t.Errorf("For test #%d, expected %d, but actually got %d.", testNumber, expected, actual)
+				t.Errorf("EXPECTED: %d", expected)
+				t.Errorf("ACTUAL:   %d", actual)
+
+				t.Errorf("EXPECTED:\n%s", test.Expected)
+				t.Errorf("ACTUAL:\n%s", buffer.String())
 				continue
 			}
 			if expected, actual := test.Expected, buffer.String(); expected != actual {
 				t.Errorf("For test #%d...", testNumber)
-				t.Errorf("EXPECTED: %q", expected)
-				t.Errorf("ACTUAL:   %q", actual)
+				t.Errorf("EXPECTED:\n%v", expected)
+				t.Errorf("ACTUAL:\n%v", actual)
 				continue
 			}
 		}
