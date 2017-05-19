@@ -34,3 +34,12 @@ or:
 gb generate
 ```
 (If you are using [GB](https://getgb.io/).)
+
+Can then use with code similar to:
+```
+type Struct Product {
+	ID     productid.Type
+	Name   string
+	ItemID itemid.NullableType
+}
+```
