@@ -45,6 +45,18 @@ func (receiver *Type) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (receiver Type) WhenNone(fn func()) {
+	if None() == receiver {
+		fn()
+	}
+}
+
+func (receiver Type) WhenSome(fn func({{.Type}})) {
+	if None() != receiver {
+		fn(receiver.value)
+	}
+}
+
 func (receiver Type) Value() (driver.Value, error) {
 	if None() == receiver {
 		return nil, errNone
