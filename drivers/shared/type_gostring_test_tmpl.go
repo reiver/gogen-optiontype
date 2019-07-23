@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestTypeString(t *testing.T) {
+func TestTypeGoString(t *testing.T) {
 	tests := []struct{
 		Datum    Type
 		Expected string
@@ -108,7 +108,7 @@ func TestTypeString(t *testing.T) {
 	}
 }
 
-func TestTypeStringNothing(t *testing.T) {
+func TestTypeGoStringNothing(t *testing.T) {
 
 	datum := Nothing()
 

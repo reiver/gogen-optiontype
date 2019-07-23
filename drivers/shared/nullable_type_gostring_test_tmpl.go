@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestNullableTypeString(t *testing.T) {
+func TestNullableTypeGoString(t *testing.T) {
 	tests := []struct{
 		Datum    NullableType
 		Expected string
@@ -108,7 +108,7 @@ func TestNullableTypeString(t *testing.T) {
 	}
 }
 
-func TestNullableTypeStringNothingNullable(t *testing.T) {
+func TestNullableTypeGoStringNothingNullable(t *testing.T) {
 
 	datum := NothingNullable()
 
@@ -118,7 +118,7 @@ func TestNullableTypeStringNothingNullable(t *testing.T) {
 	}
 }
 
-func TestNullableTypeStringNull(t *testing.T) {
+func TestNullableTypeGoStringNull(t *testing.T) {
 
 	datum := Null()
 
