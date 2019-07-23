@@ -8,8 +8,8 @@ const (
 	NullableTypeStringTmpl =
 `
 func (receiver NullableType) String() (string, error) {
-	if NoneNullable() == receiver {
-		return "", errNoneNullable
+	if NothingNullable() == receiver {
+		return "", errNothingNullable
 	}
 	if Null() == receiver {
 		return "", errNull

@@ -114,9 +114,9 @@ func TestNullableTypeInt64(t *testing.T) {
 	}
 }
 
-func TestNullableTypeInt64NoneNullable(t *testing.T) {
+func TestNullableTypeInt64NothingNullable(t *testing.T) {
 
-	datum := NoneNullable()
+	datum := NothingNullable()
 
 	_, err := datum.Int64()
 	if nil == err {
@@ -124,7 +124,7 @@ func TestNullableTypeInt64NoneNullable(t *testing.T) {
 		return
 	}
 
-	if expected, actual := errNoneNullable, err; expected != actual {
+	if expected, actual := errNothingNullable, err; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
 	}

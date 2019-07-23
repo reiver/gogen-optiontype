@@ -18,8 +18,8 @@ type Type struct {
 }
 
 func (receiver Type) MarshalJSON() ([]byte, error) {
-	if None() == receiver {
-		return nil, errNone
+	if Nothing() == receiver {
+		return nil, errNothing
 	}
 
 	return json.Marshal(receiver.value)
@@ -45,27 +45,27 @@ func (receiver *Type) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (receiver Type) WhenNone(fn func()) {
-	if None() == receiver {
+func (receiver Type) WhenNothing(fn func()) {
+	if Nothing() == receiver {
 		fn()
 	}
 }
 
 func (receiver Type) WhenSome(fn func({{.Type}})) {
-	if None() != receiver {
+	if Nothing() != receiver {
 		fn(receiver.value)
 	}
 }
 
 func (receiver Type) Value() (driver.Value, error) {
-	if None() == receiver {
-		return nil, errNone
+	if Nothing() == receiver {
+		return nil, errNothing
 	}
 
 	return receiver.value, nil
 }
 
-func None() Type {
+func Nothing() Type {
 	return Type{}
 }
 

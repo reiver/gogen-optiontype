@@ -8,8 +8,8 @@ const (
 	TypeInt64Tmpl =
 `
 func (receiver Type) Int64() (int64, error) {
-	if None() == receiver {
-		return 0, errNone
+	if Nothing() == receiver {
+		return 0, errNothing
 	}
 
 	return receiver.value, nil

@@ -145,9 +145,9 @@ func TestNullableTypeString(t *testing.T) {
 	}
 }
 
-func TestNullableTypeStringNoneNullable(t *testing.T) {
+func TestNullableTypeStringNothingNullable(t *testing.T) {
 
-	datum := NoneNullable()
+	datum := NothingNullable()
 
 	_, err := datum.String()
 	if nil == err {
@@ -155,7 +155,7 @@ func TestNullableTypeStringNoneNullable(t *testing.T) {
 		return
 	}
 
-	if expected, actual := errNoneNullable, err; expected != actual {
+	if expected, actual := errNothingNullable, err; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
 	}

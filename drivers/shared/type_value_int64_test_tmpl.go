@@ -46,8 +46,8 @@ func TestTypeValue(t *testing.T) {
 	}
 }
 
-func TestTypeValueNone(t *testing.T) {
-	datum := None()
+func TestTypeValueNothing(t *testing.T) {
+	datum := Nothing()
 
 	_, err := datum.Value()
 	if nil == err {

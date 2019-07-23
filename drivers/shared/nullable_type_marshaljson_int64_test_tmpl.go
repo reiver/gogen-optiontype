@@ -160,8 +160,8 @@ func TestNullableTypeMarshalJSON(t *testing.T) {
 	}
 }
 
-func TestNullableTypeMarshalJSONNoneNullable(t *testing.T) {
-	datum := NoneNullable()
+func TestNullableTypeMarshalJSONNothingNullable(t *testing.T) {
+	datum := NothingNullable()
 
 	_, err := datum.MarshalJSON()
 	if nil == err {

@@ -7,14 +7,14 @@ import (
 	"testing"
 )
 
-func TestNullableTypeWhenNone(t *testing.T) {
+func TestNullableTypeWhenNothing(t *testing.T) {
 	const notChanged = "not changed"
 	const changed    = "changed"
 
 	{
 		s := notChanged
 
-		NoneNullable().WhenNone(func(){
+		NothingNullable().WhenNothing(func(){
 			s = changed
 		})
 
@@ -27,7 +27,7 @@ func TestNullableTypeWhenNone(t *testing.T) {
 	{
 		s := notChanged
 
-		Null().WhenNone(func(){
+		Null().WhenNothing(func(){
 			s = changed
 		})
 
@@ -41,7 +41,7 @@ func TestNullableTypeWhenNone(t *testing.T) {
 		s := notChanged
 
 		var value {{.Type}}
-		SomeNullable(value).WhenNone(func(){
+		SomeNullable(value).WhenNothing(func(){
 			s = changed
 		})
 
@@ -59,7 +59,7 @@ func TestNullableTypeWhenNull(t *testing.T) {
 	{
 		s := notChanged
 
-		NoneNullable().WhenNull(func(){
+		NothingNullable().WhenNull(func(){
 			s = changed
 		})
 
@@ -104,7 +104,7 @@ func TestNullableTypeWhenSome(t *testing.T) {
 	{
 		s := notChanged
 
-		NoneNullable().WhenSome(func(datum {{.Type}}){
+		NothingNullable().WhenSome(func(datum {{.Type}}){
 			s = changed
 		})
 

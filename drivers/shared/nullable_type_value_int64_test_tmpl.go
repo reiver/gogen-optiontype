@@ -47,8 +47,8 @@ func TestNullableTypeValue(t *testing.T) {
 	}
 }
 
-func TestNullableTypeValueNoneNullable(t *testing.T) {
-	datum := NoneNullable()
+func TestNullableTypeValueNothingNullable(t *testing.T) {
+	datum := NothingNullable()
 
 	_, err := datum.Value()
 	if nil == err {

@@ -8,8 +8,8 @@ const (
 	NullableTypeInt64Tmpl =
 `
 func (receiver NullableType) Int64() (int64, error) {
-	if NoneNullable() == receiver {
-		return 0, errNoneNullable
+	if NothingNullable() == receiver {
+		return 0, errNothingNullable
 	}
 	if Null() == receiver {
 		return 0, errNull

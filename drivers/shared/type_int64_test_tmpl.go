@@ -114,9 +114,9 @@ func TestTypeInt64(t *testing.T) {
 	}
 }
 
-func TestTypeInt64None(t *testing.T) {
+func TestTypeInt64Nothing(t *testing.T) {
 
-	datum := None()
+	datum := Nothing()
 
 	_, err := datum.Int64()
 	if nil == err {
@@ -124,7 +124,7 @@ func TestTypeInt64None(t *testing.T) {
 		return
 	}
 
-	if expected, actual := errNone, err; expected != actual {
+	if expected, actual := errNothing, err; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
 	}

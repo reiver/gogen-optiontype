@@ -25,8 +25,8 @@ func (receiver *NullableType) Scan(src interface{}) error {
 		return nil
 	case Type:
 		switch t {
-		case None():
-			*receiver = NoneNullable()
+		case Nothing():
+			*receiver = NothingNullable()
 		default:
 			datum, err := t.String()
 			if nil != err {

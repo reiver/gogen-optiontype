@@ -160,8 +160,8 @@ func TestTypeMarshalJSON(t *testing.T) {
 	}
 }
 
-func TestTypeMarshalJSONNone(t *testing.T) {
-	datum := None()
+func TestTypeMarshalJSONNothing(t *testing.T) {
+	datum := Nothing()
 
 	_, err := datum.MarshalJSON()
 	if nil == err {

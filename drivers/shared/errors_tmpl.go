@@ -10,10 +10,10 @@ const (
 	ErrorsTmpl =
 `
 var (
-	errNilReceiver  = errors.New("Nil Receiver")
-	errNone         = errors.New("{{.Pkg}}.None()")
-	errNoneNullable = errors.New("{{.Pkg}}.NoneNullable()")
-	errNull         = errors.New("{{.Pkg}}.Null()")
+	errNilReceiver     = errors.New("Nil Receiver")
+	errNothing         = errors.New("{{.Pkg}}.Nothing()")
+	errNothingNullable = errors.New("{{.Pkg}}.NothingNullable()")
+	errNull            = errors.New("{{.Pkg}}.Null()")
 )
 `
 )

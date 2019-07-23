@@ -10,8 +10,8 @@ const (
 	TypeString1Tmpl =
 `
 func (receiver Type) String() string {
-	if None() == receiver {
-		return "{{.Pkg}}.None()"
+	if Nothing() == receiver {
+		return "{{.Pkg}}.Nothing()"
 	}
 
 	return fmt.Sprintf("{{.Pkg}}.Some(%d)", receiver.value)

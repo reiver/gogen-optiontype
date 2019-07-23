@@ -10,8 +10,8 @@ const (
 	NullableTypeString1Tmpl =
 `
 func (receiver NullableType) String() string {
-	if NoneNullable() == receiver {
-		return "{{.Pkg}}.NoneNullable()"
+	if NothingNullable() == receiver {
+		return "{{.Pkg}}.NothingNullable()"
 	}
 	if Null() == receiver {
 		return "{{.Pkg}}.Null()"

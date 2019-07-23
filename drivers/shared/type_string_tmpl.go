@@ -8,8 +8,8 @@ const (
 	TypeStringTmpl =
 `
 func (receiver Type) String() (string, error) {
-	if None() == receiver {
-		return "", errNone
+	if Nothing() == receiver {
+		return "", errNothing
 	}
 
 	return receiver.value, nil

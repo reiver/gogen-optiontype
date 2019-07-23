@@ -108,11 +108,11 @@ func TestTypeString(t *testing.T) {
 	}
 }
 
-func TestTypeStringNone(t *testing.T) {
+func TestTypeStringNothing(t *testing.T) {
 
-	datum := None()
+	datum := Nothing()
 
-	if expected, actual := "{{.Pkg}}.None()", datum.String(); expected != actual {
+	if expected, actual := "{{.Pkg}}.Nothing()", datum.String(); expected != actual {
 		t.Errorf("Expected %q, but actually got %q", expected, actual)
 		return
 	}
