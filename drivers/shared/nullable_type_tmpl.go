@@ -17,6 +17,17 @@ type NullableType struct {
 	value  {{.Type}}
 }
 
+func (receiver NullableType) Map(fn func({{.Type}}){{.Type}}) NullableType {
+	if NothingNullable() == receiver {
+		return receiver
+	}
+	if Null() == receiver {
+		return receiver
+	}
+
+	return SomethingNullable(fn(receiver.value))
+}
+
 func (receiver NullableType) MarshalJSON() ([]byte, error) {
 	if NothingNullable() == receiver {
 		return nil, errNothingNullable

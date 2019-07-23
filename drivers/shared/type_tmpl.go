@@ -17,6 +17,14 @@ type Type struct {
 	value  {{.Type}}
 }
 
+func (receiver Type) Map(fn func({{.Type}}){{.Type}}) Type {
+	if Nothing() == receiver {
+		return receiver
+	}
+
+	return Something(fn(receiver.value))
+}
+
 func (receiver Type) MarshalJSON() ([]byte, error) {
 	if Nothing() == receiver {
 		return nil, errNothing
