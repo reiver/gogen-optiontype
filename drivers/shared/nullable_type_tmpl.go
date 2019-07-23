@@ -17,6 +17,17 @@ type NullableType struct {
 	value  {{.Type}}
 }
 
+func (receiver NullableType) Else(value {{.Type}}) NullableType {
+	if NothingNullable() == receiver {
+		return SomethingNullable(value)
+	}
+	if Null() == receiver {
+		return SomethingNullable(value)
+	}
+
+	return receiver
+}
+
 func (receiver NullableType) Map(fn func({{.Type}}){{.Type}}) NullableType {
 	if NothingNullable() == receiver {
 		return receiver

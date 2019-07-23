@@ -17,6 +17,14 @@ type Type struct {
 	value  {{.Type}}
 }
 
+func (receiver Type) Else(value {{.Type}}) Type {
+	if Nothing() == receiver {
+		return Something(value)
+	}
+
+	return receiver
+}
+
 func (receiver Type) Map(fn func({{.Type}}){{.Type}}) Type {
 	if Nothing() == receiver {
 		return receiver
