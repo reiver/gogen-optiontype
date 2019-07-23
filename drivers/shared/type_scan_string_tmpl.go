@@ -19,11 +19,11 @@ func (receiver *Type) Scan(src interface{}) error {
 		*receiver = t
 		return nil
 	case string:
-		*receiver = Some(t)
+		*receiver = Something(t)
 		return nil
 	case []byte:
 		s := string(t)
-		*receiver = Some(s)
+		*receiver = Something(s)
 		return nil
 	default:
 		return fmt.Errorf("Cannot scan something of type %T into an %T.", src, *receiver)

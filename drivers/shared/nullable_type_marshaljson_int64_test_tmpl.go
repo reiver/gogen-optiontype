@@ -22,7 +22,7 @@ func TestNullableTypeMarshalJSONStruct(t *testing.T) {
 
 	var datum MyThing
 
-	datum.ID = SomeNullable(5)
+	datum.ID = SomethingNullable(5)
 	datum.EMail = "joeblow@example.net"
 	{
 		tm, err := time.Parse(time.RFC3339, "2017-04-12T13:02:28Z")
@@ -33,7 +33,7 @@ func TestNullableTypeMarshalJSONStruct(t *testing.T) {
 
 		datum.WhenCreated = tm
 	}
-	datum.ParentID = SomeNullable(2)
+	datum.ParentID = SomethingNullable(2)
 
 	actualBytes, err := json.Marshal(datum)
 	if nil != err {
@@ -63,55 +63,55 @@ func TestNullableTypeMarshalJSON(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum:         SomeNullable(math.MinInt64),
+			Datum:    SomethingNullable(math.MinInt64),
 			Expected: fmt.Sprintf("%d", math.MinInt64),
 		},
 		{
-			Datum: SomeNullable(5),
-			Expected:          "5",
+			Datum: SomethingNullable(5),
+			Expected:               "5",
 		},
 		{
-			Datum: SomeNullable(-4),
-			Expected:          "-4",
+			Datum: SomethingNullable(-4),
+			Expected:               "-4",
 		},
 		{
-			Datum: SomeNullable(-3),
-			Expected:          "-3",
+			Datum: SomethingNullable(-3),
+			Expected:               "-3",
 		},
 		{
-			Datum: SomeNullable(-2),
-			Expected:          "-2",
+			Datum: SomethingNullable(-2),
+			Expected:               "-2",
 		},
 		{
-			Datum: SomeNullable(-1),
-			Expected:          "-1",
+			Datum: SomethingNullable(-1),
+			Expected:               "-1",
 		},
 		{
-			Datum: SomeNullable(0),
-			Expected:          "0",
+			Datum: SomethingNullable(0),
+			Expected:               "0",
 		},
 		{
-			Datum: SomeNullable(1),
-			Expected:          "1",
+			Datum: SomethingNullable(1),
+			Expected:               "1",
 		},
 		{
-			Datum: SomeNullable(2),
-			Expected:          "2",
+			Datum: SomethingNullable(2),
+			Expected:               "2",
 		},
 		{
-			Datum: SomeNullable(3),
-			Expected:          "3",
+			Datum: SomethingNullable(3),
+			Expected:               "3",
 		},
 		{
-			Datum: SomeNullable(4),
-			Expected:          "4",
+			Datum: SomethingNullable(4),
+			Expected:               "4",
 		},
 		{
-			Datum: SomeNullable(5),
-			Expected:          "5",
+			Datum: SomethingNullable(5),
+			Expected:               "5",
 		},
 		{
-			Datum:         SomeNullable(math.MaxInt64),
+			Datum:    SomethingNullable(math.MaxInt64),
 			Expected: fmt.Sprintf("%d", math.MaxInt64),
 		},
 	}
@@ -125,7 +125,7 @@ func TestNullableTypeMarshalJSON(t *testing.T) {
 				Datum    NullableType
 				Expected string
 			}{
-				Datum:         SomeNullable(x),
+				Datum:    SomethingNullable(x),
 				Expected: fmt.Sprintf("%d", x),
 			}
 			tests = append(tests, test)
@@ -138,7 +138,7 @@ func TestNullableTypeMarshalJSON(t *testing.T) {
 				Datum    NullableType
 				Expected string
 			}{
-				Datum:         SomeNullable(y),
+				Datum:    SomethingNullable(y),
 				Expected: fmt.Sprintf("%d", y),
 			}
 			tests = append(tests, test)

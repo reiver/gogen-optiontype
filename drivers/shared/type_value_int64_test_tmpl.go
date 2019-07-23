@@ -14,20 +14,20 @@ func TestTypeValue(t *testing.T) {
 		Expected int64
 	}{
 		{
-			Datum:     Some(1),
-			Expected: int64(1),
+			Datum: Something(1),
+			Expected:  int64(1),
 		},
 		{
-			Datum:     Some(12),
-			Expected: int64(12),
+			Datum: Something(12),
+			Expected:  int64(12),
 		},
 		{
-			Datum:     Some(-5),
-			Expected: int64(-5),
+			Datum: Something(-5),
+			Expected:  int64(-5),
 		},
 		{
-			Datum:     Some(math.MaxInt64),
-			Expected: int64(math.MaxInt64),
+			Datum: Something(math.MaxInt64),
+			Expected:  int64(math.MaxInt64),
 		},
 	}
 

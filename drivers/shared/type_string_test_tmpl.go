@@ -15,74 +15,74 @@ func TestTypeString(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum: Some("apple"),
-			Expected:   "apple",
+			Datum: Something("apple"),
+			Expected:        "apple",
 		},
 		{
-			Datum: Some("BANANA"),
-			Expected:   "BANANA",
+			Datum: Something("BANANA"),
+			Expected:        "BANANA",
 		},
 		{
-			Datum: Some("Cherry"),
-			Expected:   "Cherry",
+			Datum: Something("Cherry"),
+			Expected:        "Cherry",
 		},
 		{
-			Datum: Some("dATE"),
-			Expected:   "dATE",
-		},
-
-
-
-		{
-			Datum: Some("Hello world!"),
-			Expected:   "Hello world!",
+			Datum: Something("dATE"),
+			Expected:        "dATE",
 		},
 
 
 
 		{
-			Datum: Some("-5"),
-			Expected:   "-5",
+			Datum: Something("Hello world!"),
+			Expected:        "Hello world!",
+		},
+
+
+
+		{
+			Datum: Something("-5"),
+			Expected:        "-5",
 		},
 		{
-			Datum: Some("-4"),
-			Expected:   "-4",
+			Datum: Something("-4"),
+			Expected:        "-4",
 		},
 		{
-			Datum: Some("-3"),
-			Expected:   "-3",
+			Datum: Something("-3"),
+			Expected:        "-3",
 		},
 		{
-			Datum: Some("-2"),
-			Expected:   "-2",
+			Datum: Something("-2"),
+			Expected:        "-2",
 		},
 		{
-			Datum: Some("-1"),
-			Expected:   "-1",
+			Datum: Something("-1"),
+			Expected:        "-1",
 		},
 		{
-			Datum: Some("0"),
-			Expected:   "0",
+			Datum: Something("0"),
+			Expected:        "0",
 		},
 		{
-			Datum: Some("1"),
-			Expected:   "1",
+			Datum: Something("1"),
+			Expected:        "1",
 		},
 		{
-			Datum: Some("2"),
-			Expected:   "2",
+			Datum: Something("2"),
+			Expected:        "2",
 		},
 		{
-			Datum: Some("3"),
-			Expected:   "3",
+			Datum: Something("3"),
+			Expected:        "3",
 		},
 		{
-			Datum: Some("4"),
-			Expected:   "4",
+			Datum: Something("4"),
+			Expected:        "4",
 		},
 		{
-			Datum: Some("5"),
-			Expected:   "5",
+			Datum: Something("5"),
+			Expected:        "5",
 		},
 	}
 
@@ -97,7 +97,7 @@ func TestTypeString(t *testing.T) {
 				Datum    Type
 				Expected string
 			}{
-				Datum: Some(s),
+				Datum: Something(s),
 				Expected:   s,
 			}
 			tests = append(tests, test)
@@ -112,7 +112,7 @@ func TestTypeString(t *testing.T) {
 				Datum    Type
 				Expected string
 			}{
-				Datum: Some(s),
+				Datum: Something(s),
 				Expected:   s,
 			}
 			tests = append(tests, test)

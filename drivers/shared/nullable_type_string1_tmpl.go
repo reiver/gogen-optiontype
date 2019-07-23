@@ -17,7 +17,7 @@ func (receiver NullableType) String() string {
 		return "{{.Pkg}}.Null()"
 	}
 
-	return fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", receiver.value)
+	return fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", receiver.value)
 }
 `
 )

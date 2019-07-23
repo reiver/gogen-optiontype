@@ -14,7 +14,7 @@ func (receiver Type) String() string {
 		return "{{.Pkg}}.Nothing()"
 	}
 
-	return fmt.Sprintf("{{.Pkg}}.Some(%d)", receiver.value)
+	return fmt.Sprintf("{{.Pkg}}.Something(%d)", receiver.value)
 }
 `
 )

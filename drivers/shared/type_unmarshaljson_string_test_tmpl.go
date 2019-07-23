@@ -34,7 +34,7 @@ func TestTypeUnmarshalJSONStruct(t *testing.T) {
 		return
 	}
 
-	if expected, actual := Some("some-ID"), datum.ID; expected != actual {
+	if expected, actual := Something("some-ID"), datum.ID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
 	}
@@ -57,7 +57,7 @@ func TestTypeUnmarshalJSONStruct(t *testing.T) {
 		}
 	}
 
-	if expected, actual := Some("another-ID"),
+	if expected, actual := Something("another-ID"),
 		datum.ParentID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
@@ -72,73 +72,73 @@ func TestTypeUnmarshalJSON(t *testing.T) {
 	}{
 		{
 			Datum: []byte(`+"`"+`"apple"`+"`"+`),
-			Expected:       Some("apple"),
+			Expected:  Something("apple"),
 		},
 		{
 			Datum: []byte(`+"`"+`"BANANA"`+"`"+`),
-			Expected:       Some("BANANA"),
+			Expected:  Something("BANANA"),
 		},
 		{
 			Datum: []byte(`+"`"+`"Cherry"`+"`"+`),
-			Expected:       Some("Cherry"),
+			Expected:  Something("Cherry"),
 		},
 		{
 			Datum: []byte(`+"`"+`"dATE"`+"`"+`),
-			Expected:       Some("dATE"),
+			Expected:  Something("dATE"),
 		},
 
 
 
 		{
 			Datum: []byte(`+"`"+`"Hello world!"`+"`"+`),
-			Expected:       Some("Hello world!"),
+			Expected:  Something("Hello world!"),
 		},
 
 
 
 		{
 			Datum: []byte(`+"`"+`"-5"`+"`"+`),
-			Expected:       Some("-5"),
+			Expected:  Something("-5"),
 		},
 		{
 			Datum: []byte(`+"`"+`"-4"`+"`"+`),
-			Expected:       Some("-4"),
+			Expected:  Something("-4"),
 		},
 		{
 			Datum: []byte(`+"`"+`"-3"`+"`"+`),
-			Expected:       Some("-3"),
+			Expected:  Something("-3"),
 		},
 		{
 			Datum: []byte(`+"`"+`"-2"`+"`"+`),
-			Expected:       Some("-2"),
+			Expected:  Something("-2"),
 		},
 		{
 			Datum: []byte(`+"`"+`"-1"`+"`"+`),
-			Expected:       Some("-1"),
+			Expected:  Something("-1"),
 		},
 		{
 			Datum: []byte(`+"`"+`"0"`+"`"+`),
-			Expected:       Some("0"),
+			Expected:  Something("0"),
 		},
 		{
 			Datum: []byte(`+"`"+`"1"`+"`"+`),
-			Expected:       Some("1"),
+			Expected:  Something("1"),
 		},
 		{
 			Datum: []byte(`+"`"+`"2"`+"`"+`),
-			Expected:       Some("2"),
+			Expected:  Something("2"),
 		},
 		{
 			Datum: []byte(`+"`"+`"3"`+"`"+`),
-			Expected:       Some("3"),
+			Expected:  Something("3"),
 		},
 		{
 			Datum: []byte(`+"`"+`"4"`+"`"+`),
-			Expected:       Some("4"),
+			Expected:  Something("4"),
 		},
 		{
 			Datum: []byte(`+"`"+`"5"`+"`"+`),
-			Expected:       Some("5"),
+			Expected:  Something("5"),
 		},
 	}
 
@@ -151,8 +151,8 @@ func TestTypeUnmarshalJSON(t *testing.T) {
 				Datum    []byte
 				Expected Type
 			}{
-				Datum:  []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, x)),
-				Expected: Some(fmt.Sprintf(       "%d",        x)),
+				Datum:       []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, x)),
+				Expected: Something(fmt.Sprintf(       "%d",        x)),
 			}
 			tests = append(tests, test)
 		}
@@ -164,8 +164,8 @@ func TestTypeUnmarshalJSON(t *testing.T) {
 				Datum    []byte
 				Expected Type
 			}{
-				Datum:  []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, y)),
-				Expected: Some(fmt.Sprintf(       "%d",        y)),
+				Datum:       []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, y)),
+				Expected: Something(fmt.Sprintf(       "%d",        y)),
 			}
 			tests = append(tests, test)
 		}

@@ -16,177 +16,177 @@ func TestTypeScan(t *testing.T) {
 		Expected Type
 	}{
 		{
-			Datum:    Some("apple"),
-			Expected: Some("apple"),
+			Datum:    Something("apple"),
+			Expected: Something("apple"),
 		},
 		{
-			Datum:    Some("BANANA"),
-			Expected: Some("BANANA"),
+			Datum:    Something("BANANA"),
+			Expected: Something("BANANA"),
 		},
 		{
-			Datum:    Some("Cherry"),
-			Expected: Some("Cherry"),
+			Datum:    Something("Cherry"),
+			Expected: Something("Cherry"),
 		},
 		{
-			Datum:    Some("dATE"),
-			Expected: Some("dATE"),
-		},
-
-
-
-		{
-			Datum:         "apple",
-			Expected: Some("apple"),
-		},
-		{
-			Datum:         "BANANA",
-			Expected: Some("BANANA"),
-		},
-		{
-			Datum:         "Cherry",
-			Expected: Some("Cherry"),
-		},
-		{
-			Datum:         "dATE",
-			Expected: Some("dATE"),
+			Datum:    Something("dATE"),
+			Expected: Something("dATE"),
 		},
 
 
 
 		{
-			Datum:  []byte("apple"),
-			Expected: Some("apple"),
+			Datum:              "apple",
+			Expected: Something("apple"),
 		},
 		{
-			Datum:  []byte("BANANA"),
-			Expected: Some("BANANA"),
+			Datum:              "BANANA",
+			Expected: Something("BANANA"),
 		},
 		{
-			Datum:  []byte("Cherry"),
-			Expected: Some("Cherry"),
+			Datum:              "Cherry",
+			Expected: Something("Cherry"),
 		},
 		{
-			Datum:  []byte("dATE"),
-			Expected: Some("dATE"),
-		},
-
-
-
-		{
-			Datum:    Some("Hello world!"),
-			Expected: Some("Hello world!"),
+			Datum:              "dATE",
+			Expected: Something("dATE"),
 		},
 
 
 
 		{
-			Datum:         "Hello world!",
-			Expected: Some("Hello world!"),
+			Datum:       []byte("apple"),
+			Expected: Something("apple"),
+		},
+		{
+			Datum:       []byte("BANANA"),
+			Expected: Something("BANANA"),
+		},
+		{
+			Datum:       []byte("Cherry"),
+			Expected: Something("Cherry"),
+		},
+		{
+			Datum:       []byte("dATE"),
+			Expected: Something("dATE"),
 		},
 
 
 
 		{
-			Datum:  []byte("Hello world!"),
-			Expected: Some("Hello world!"),
+			Datum:    Something("Hello world!"),
+			Expected: Something("Hello world!"),
 		},
 
 
 
 		{
-			Datum:         "-5",
-			Expected: Some("-5"),
-		},
-		{
-			Datum:         "-4",
-			Expected: Some("-4"),
-		},
-		{
-			Datum:         "-3",
-			Expected: Some("-3"),
-		},
-		{
-			Datum:         "-3",
-			Expected: Some("-3"),
-		},
-		{
-			Datum:         "-2",
-			Expected: Some("-2"),
-		},
-		{
-			Datum:         "-1",
-			Expected: Some("-1"),
-		},
-		{
-			Datum:         "0",
-			Expected: Some("0"),
-		},
-		{
-			Datum:         "1",
-			Expected: Some("1"),
-		},
-		{
-			Datum:         "2",
-			Expected: Some("2"),
-		},
-		{
-			Datum:         "3",
-			Expected: Some("3"),
-		},
-		{
-			Datum:         "4",
-			Expected: Some("4"),
-		},
-		{
-			Datum:         "5",
-			Expected: Some("5"),
+			Datum:              "Hello world!",
+			Expected: Something("Hello world!"),
 		},
 
 
 
 		{
-			Datum:  []byte("-5"),
-			Expected: Some("-5"),
+			Datum:       []byte("Hello world!"),
+			Expected: Something("Hello world!"),
+		},
+
+
+
+		{
+			Datum:              "-5",
+			Expected: Something("-5"),
 		},
 		{
-			Datum:  []byte("-4"),
-			Expected: Some("-4"),
+			Datum:              "-4",
+			Expected: Something("-4"),
 		},
 		{
-			Datum:  []byte("-3"),
-			Expected: Some("-3"),
+			Datum:              "-3",
+			Expected: Something("-3"),
 		},
 		{
-			Datum:  []byte("-2"),
-			Expected: Some("-2"),
+			Datum:              "-3",
+			Expected: Something("-3"),
 		},
 		{
-			Datum:  []byte("-1"),
-			Expected: Some("-1"),
+			Datum:              "-2",
+			Expected: Something("-2"),
 		},
 		{
-			Datum:  []byte("0"),
-			Expected: Some("0"),
+			Datum:              "-1",
+			Expected: Something("-1"),
 		},
 		{
-			Datum:  []byte("1"),
-			Expected: Some("1"),
+			Datum:              "0",
+			Expected: Something("0"),
 		},
 		{
-			Datum:  []byte("2"),
-			Expected: Some("2"),
+			Datum:              "1",
+			Expected: Something("1"),
 		},
 		{
-			Datum:  []byte("3"),
-			Expected: Some("3"),
+			Datum:              "2",
+			Expected: Something("2"),
 		},
 		{
-			Datum:  []byte("4"),
-			Expected: Some("4"),
+			Datum:              "3",
+			Expected: Something("3"),
 		},
 		{
-			Datum:  []byte("5"),
-			Expected: Some("5"),
+			Datum:              "4",
+			Expected: Something("4"),
+		},
+		{
+			Datum:              "5",
+			Expected: Something("5"),
+		},
+
+
+
+		{
+			Datum:       []byte("-5"),
+			Expected: Something("-5"),
+		},
+		{
+			Datum:       []byte("-4"),
+			Expected: Something("-4"),
+		},
+		{
+			Datum:       []byte("-3"),
+			Expected: Something("-3"),
+		},
+		{
+			Datum:       []byte("-2"),
+			Expected: Something("-2"),
+		},
+		{
+			Datum:       []byte("-1"),
+			Expected: Something("-1"),
+		},
+		{
+			Datum:       []byte("0"),
+			Expected: Something("0"),
+		},
+		{
+			Datum:       []byte("1"),
+			Expected: Something("1"),
+		},
+		{
+			Datum:       []byte("2"),
+			Expected: Something("2"),
+		},
+		{
+			Datum:       []byte("3"),
+			Expected: Something("3"),
+		},
+		{
+			Datum:       []byte("4"),
+			Expected: Something("4"),
+		},
+		{
+			Datum:       []byte("5"),
+			Expected: Something("5"),
 		},
 	}
 
@@ -201,8 +201,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         s,
-				Expected: Some(s),
+				Datum:              s,
+				Expected: Something(s),
 			}
 			tests = append(tests, test)
 		}
@@ -216,8 +216,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         s,
-				Expected: Some(s),
+				Datum:              s,
+				Expected: Something(s),
 			}
 			tests = append(tests, test)
 		}
@@ -230,8 +230,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         b,
-				Expected: Some(s),
+				Datum:              b,
+				Expected: Something(s),
 			}
 			tests = append(tests, test)
 		}
@@ -246,8 +246,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         b,
-				Expected: Some(s),
+				Datum:              b,
+				Expected: Something(s),
 			}
 			tests = append(tests, test)
 		}

@@ -33,18 +33,18 @@ func (receiver *NullableType) Scan(src interface{}) error {
 			if nil != err {
 				return fmt.Errorf("Problem unwrapping %T: (%T) %v", t, err, err)
 			}
-			*receiver = SomeNullable(datum)
+			*receiver = SomethingNullable(datum)
 		}
 		return nil
 	case int64:
-		*receiver = SomeNullable(t)
+		*receiver = SomethingNullable(t)
 		return nil
 	case string:
 		i64, err := strconv.ParseInt(t, 10, 64)
 		if nil != err {
 			return err
 		}
-		*receiver = SomeNullable(i64)
+		*receiver = SomethingNullable(i64)
 		return nil
 	case []byte:
 		s := string(t)
@@ -52,7 +52,7 @@ func (receiver *NullableType) Scan(src interface{}) error {
 		if nil != err {
 			return err
 		}
-		*receiver = SomeNullable(i64)
+		*receiver = SomethingNullable(i64)
 		return nil
 	default:
 		return fmt.Errorf("Cannot scan something of type %T into an %T.", src, *receiver)

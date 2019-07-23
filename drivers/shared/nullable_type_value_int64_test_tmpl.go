@@ -15,20 +15,20 @@ func TestNullableTypeValue(t *testing.T) {
 		Expected int64
 	}{
 		{
-			Datum: SomeNullable(1),
-			Expected: int64(1),
+			Datum: SomethingNullable(1),
+			Expected:          int64(1),
 		},
 		{
-			Datum: SomeNullable(12),
-			Expected: int64(12),
+			Datum: SomethingNullable(12),
+			Expected:          int64(12),
 		},
 		{
-			Datum: SomeNullable(-5),
-			Expected: int64(-5),
+			Datum: SomethingNullable(-5),
+			Expected:          int64(-5),
 		},
 		{
-			Datum: SomeNullable(math.MaxInt64),
-			Expected: int64(math.MaxInt64),
+			Datum: SomethingNullable(math.MaxInt64),
+			Expected:          int64(math.MaxInt64),
 		},
 	}
 

@@ -15,56 +15,56 @@ func TestNullableTypeString(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum:                                SomeNullable(math.MinInt64),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", math.MinInt64),
+			Datum:                                SomethingNullable(math.MinInt64),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", math.MinInt64),
 		},
 		{
-			Datum                               : SomeNullable(-5),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", -5),
+			Datum                               : SomethingNullable(-5),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", -5),
 		},
 		{
-			Datum                               : SomeNullable(-4),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", -4),
+			Datum                               : SomethingNullable(-4),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", -4),
 		},
 		{
-			Datum                               : SomeNullable(-3),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", -3),
+			Datum                               : SomethingNullable(-3),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", -3),
 		},
 		{
-			Datum                               : SomeNullable(-2),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", -2),
+			Datum                               : SomethingNullable(-2),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", -2),
 		},
 		{
-			Datum                               : SomeNullable(-1),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", -1),
+			Datum                               : SomethingNullable(-1),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", -1),
 		},
 		{
-			Datum                               : SomeNullable(0),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", 0),
+			Datum                               : SomethingNullable(0),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", 0),
 		},
 		{
-			Datum                               : SomeNullable(1),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", 1),
+			Datum                               : SomethingNullable(1),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", 1),
 		},
 		{
-			Datum                               : SomeNullable(2),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", 2),
+			Datum                               : SomethingNullable(2),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", 2),
 		},
 		{
-			Datum                               : SomeNullable(3),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", 3),
+			Datum                               : SomethingNullable(3),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", 3),
 		},
 		{
-			Datum                               : SomeNullable(4),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", 4),
+			Datum                               : SomethingNullable(4),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", 4),
 		},
 		{
-			Datum                               : SomeNullable(5),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", 5),
+			Datum                               : SomethingNullable(5),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", 5),
 		},
 		{
-			Datum:                                SomeNullable(math.MaxInt64),
-			Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", math.MaxInt64),
+			Datum:                                SomethingNullable(math.MaxInt64),
+			Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", math.MaxInt64),
 		},
 	}
 
@@ -77,8 +77,8 @@ func TestNullableTypeString(t *testing.T) {
 				Datum NullableType
 				Expected string
 			}{
-				Datum:                                SomeNullable(x),
-				Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", x),
+				Datum:                                SomethingNullable(x),
+				Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", x),
 			}
 			tests = append(tests, test)
 		}
@@ -90,8 +90,8 @@ func TestNullableTypeString(t *testing.T) {
 				Datum NullableType
 				Expected string
 			}{
-				Datum:                                SomeNullable(y),
-				Expected: fmt.Sprintf("{{.Pkg}}.SomeNullable(%d)", y),
+				Datum:                                SomethingNullable(y),
+				Expected: fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", y),
 			}
 			tests = append(tests, test)
 		}

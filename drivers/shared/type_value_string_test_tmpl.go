@@ -13,42 +13,42 @@ func TestTypeValue(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum: Some("apple"),
-			Expected:   "apple",
+			Datum: Something("apple"),
+			Expected:        "apple",
 		},
 		{
-			Datum: Some("BANANA"),
-			Expected:   "BANANA",
+			Datum: Something("BANANA"),
+			Expected:        "BANANA",
 		},
 		{
-			Datum: Some("Cherry"),
-			Expected:   "Cherry",
+			Datum: Something("Cherry"),
+			Expected:        "Cherry",
 		},
 		{
-			Datum: Some("dATE"),
-			Expected:   "dATE",
-		},
-
-
-
-		{
-			Datum: Some("Hello world!"),
-			Expected:   "Hello world!",
+			Datum: Something("dATE"),
+			Expected:        "dATE",
 		},
 
 
 
 		{
-			Datum: Some("1"),
-			Expected:   "1",
+			Datum: Something("Hello world!"),
+			Expected:        "Hello world!",
+		},
+
+
+
+		{
+			Datum: Something("1"),
+			Expected:        "1",
 		},
 		{
-			Datum: Some("12"),
-			Expected:   "12",
+			Datum: Something("12"),
+			Expected:        "12",
 		},
 		{
-			Datum: Some("-5"),
-			Expected:   "-5",
+			Datum: Something("-5"),
+			Expected:        "-5",
 		},
 	}
 

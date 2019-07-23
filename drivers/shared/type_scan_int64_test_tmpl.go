@@ -17,221 +17,221 @@ func TestTypeScan(t *testing.T) {
 		Expected Type
 	}{
 		{
-			Datum:    Some(math.MinInt64),
-			Expected: Some(math.MinInt64),
+			Datum:    Something(math.MinInt64),
+			Expected: Something(math.MinInt64),
 		},
 		{
-			Datum:    Some(-5),
-			Expected: Some(-5),
+			Datum:    Something(-5),
+			Expected: Something(-5),
 		},
 		{
-			Datum:    Some(-4),
-			Expected: Some(-4),
+			Datum:    Something(-4),
+			Expected: Something(-4),
 		},
 		{
-			Datum:    Some(-3),
-			Expected: Some(-3),
+			Datum:    Something(-3),
+			Expected: Something(-3),
 		},
 		{
-			Datum:    Some(-2),
-			Expected: Some(-2),
+			Datum:    Something(-2),
+			Expected: Something(-2),
 		},
 		{
-			Datum:    Some(-1),
-			Expected: Some(-1),
+			Datum:    Something(-1),
+			Expected: Something(-1),
 		},
 		{
-			Datum:    Some(0),
-			Expected: Some(0),
+			Datum:    Something(0),
+			Expected: Something(0),
 		},
 		{
-			Datum:    Some(1),
-			Expected: Some(1),
+			Datum:    Something(1),
+			Expected: Something(1),
 		},
 		{
-			Datum:    Some(2),
-			Expected: Some(2),
+			Datum:    Something(2),
+			Expected: Something(2),
 		},
 		{
-			Datum:    Some(3),
-			Expected: Some(3),
+			Datum:    Something(3),
+			Expected: Something(3),
 		},
 		{
-			Datum:    Some(4),
-			Expected: Some(4),
+			Datum:    Something(4),
+			Expected: Something(4),
 		},
 		{
-			Datum:    Some(5),
-			Expected: Some(5),
+			Datum:    Something(5),
+			Expected: Something(5),
 		},
 		{
-			Datum:    Some(math.MaxInt64),
-			Expected: Some(math.MaxInt64),
+			Datum:    Something(math.MaxInt64),
+			Expected: Something(math.MaxInt64),
 		},
 
 
 
 		{
-			Datum:    int64(math.MinInt64),
-			Expected:  Some(math.MinInt64),
+			Datum:         int64(math.MinInt64),
+			Expected:  Something(math.MinInt64),
 		},
 		{
-			Datum:    int64(-5),
-			Expected:  Some(-5),
+			Datum:         int64(-5),
+			Expected:  Something(-5),
 		},
 		{
-			Datum:    int64(-4),
-			Expected:  Some(-4),
+			Datum:         int64(-4),
+			Expected:  Something(-4),
 		},
 		{
-			Datum:    int64(-3),
-			Expected:  Some(-3),
+			Datum:         int64(-3),
+			Expected:  Something(-3),
 		},
 		{
-			Datum:    int64(-2),
-			Expected:  Some(-2),
+			Datum:         int64(-2),
+			Expected:  Something(-2),
 		},
 		{
-			Datum:    int64(-1),
-			Expected:  Some(-1),
+			Datum:         int64(-1),
+			Expected:  Something(-1),
 		},
 		{
-			Datum:    int64(0),
-			Expected:  Some(0),
+			Datum:         int64(0),
+			Expected:  Something(0),
 		},
 		{
-			Datum:    int64(1),
-			Expected:  Some(1),
+			Datum:         int64(1),
+			Expected:  Something(1),
 		},
 		{
-			Datum:    int64(2),
-			Expected:  Some(2),
+			Datum:         int64(2),
+			Expected:  Something(2),
 		},
 		{
-			Datum:    int64(3),
-			Expected:  Some(3),
+			Datum:         int64(3),
+			Expected:  Something(3),
 		},
 		{
-			Datum:    int64(4),
-			Expected:  Some(4),
+			Datum:         int64(4),
+			Expected:  Something(4),
 		},
 		{
-			Datum:    int64(5),
-			Expected:  Some(5),
+			Datum:         int64(5),
+			Expected:  Something(5),
 		},
 		{
-			Datum:    int64(math.MaxInt64),
-			Expected:  Some(math.MaxInt64),
+			Datum:         int64(math.MaxInt64),
+			Expected:  Something(math.MaxInt64),
 		},
 
 
 
 		{
 			Datum: fmt.Sprintf("%d", math.MinInt64),
-			Expected:           Some(math.MinInt64),
+			Expected:      Something(math.MinInt64),
 		},
 		{
 			Datum: fmt.Sprintf("%d", -5),
-			Expected:           Some(-5),
+			Expected:      Something(-5),
 		},
 		{
 			Datum: fmt.Sprintf("%d", -4),
-			Expected:           Some(-4),
+			Expected:      Something(-4),
 		},
 		{
 			Datum: fmt.Sprintf("%d", -3),
-			Expected:           Some(-3),
+			Expected:      Something(-3),
 		},
 		{
 			Datum: fmt.Sprintf("%d", -2),
-			Expected:           Some(-2),
+			Expected:      Something(-2),
 		},
 		{
 			Datum: fmt.Sprintf("%d", -1),
-			Expected:           Some(-1),
+			Expected:      Something(-1),
 		},
 		{
 			Datum: fmt.Sprintf("%d", 0),
-			Expected:           Some(0),
+			Expected:      Something(0),
 		},
 		{
 			Datum: fmt.Sprintf("%d", 1),
-			Expected:           Some(1),
+			Expected:      Something(1),
 		},
 		{
 			Datum: fmt.Sprintf("%d", 2),
-			Expected:           Some(2),
+			Expected:      Something(2),
 		},
 		{
 			Datum: fmt.Sprintf("%d", 3),
-			Expected:           Some(3),
+			Expected:      Something(3),
 		},
 		{
 			Datum: fmt.Sprintf("%d", 4),
-			Expected:           Some(4),
+			Expected:      Something(4),
 		},
 		{
 			Datum: fmt.Sprintf("%d", 5),
-			Expected:           Some(5),
+			Expected:      Something(5),
 		},
 		{
 			Datum: fmt.Sprintf("%d", math.MaxInt64),
-			Expected:           Some(math.MaxInt64),
+			Expected:      Something(math.MaxInt64),
 		},
 
 
 
 		{
 			Datum: []byte(fmt.Sprintf("%d", math.MinInt64)),
-			Expected:                  Some(math.MinInt64),
+			Expected:             Something(math.MinInt64),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", -5)),
-			Expected:                  Some(-5),
+			Expected:             Something(-5),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", -4)),
-			Expected:                  Some(-4),
+			Expected:             Something(-4),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", -3)),
-			Expected:                  Some(-3),
+			Expected:             Something(-3),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", -2)),
-			Expected:                  Some(-2),
+			Expected:             Something(-2),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", -1)),
-			Expected:                  Some(-1),
+			Expected:             Something(-1),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", 0)),
-			Expected:                  Some(0),
+			Expected:             Something(0),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", 1)),
-			Expected:                  Some(1),
+			Expected:             Something(1),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", 2)),
-			Expected:                  Some(2),
+			Expected:             Something(2),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", 3)),
-			Expected:                  Some(3),
+			Expected:             Something(3),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", 4)),
-			Expected:                  Some(4),
+			Expected:             Something(4),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", 5)),
-			Expected:                  Some(5),
+			Expected:             Something(5),
 		},
 		{
 			Datum: fmt.Sprintf("%d", math.MaxInt64),
-			Expected:           Some(math.MaxInt64),
+			Expected:      Something(math.MaxInt64),
 		},
 	}
 
@@ -244,8 +244,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         x,
-				Expected: Some(x),
+				Datum:              x,
+				Expected: Something(x),
 			}
 			tests = append(tests, test)
 		}
@@ -257,8 +257,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         y,
-				Expected: Some(y),
+				Datum:              y,
+				Expected: Something(y),
 			}
 			tests = append(tests, test)
 		}
@@ -270,8 +270,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         s,
-				Expected: Some(x),
+				Datum:              s,
+				Expected: Something(x),
 			}
 			tests = append(tests, test)
 		}
@@ -285,8 +285,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         s,
-				Expected: Some(y),
+				Datum:              s,
+				Expected: Something(y),
 			}
 			tests = append(tests, test)
 		}
@@ -299,8 +299,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         b,
-				Expected: Some(x),
+				Datum:              b,
+				Expected: Something(x),
 			}
 			tests = append(tests, test)
 		}
@@ -315,8 +315,8 @@ func TestTypeScan(t *testing.T) {
 				Datum    interface{}
 				Expected Type
 			}{
-				Datum:         b,
-				Expected: Some(y),
+				Datum:              b,
+				Expected: Something(y),
 			}
 			tests = append(tests, test)
 		}

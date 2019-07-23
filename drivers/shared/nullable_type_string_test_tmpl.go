@@ -16,82 +16,82 @@ func TestNullableTypeString(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum: SomeNullable("apple"),
-			Expected:           "apple",
+			Datum: SomethingNullable("apple"),
+			Expected:                "apple",
 		},
 		{
-			Datum: SomeNullable("BANANA"),
-			Expected:           "BANANA",
+			Datum: SomethingNullable("BANANA"),
+			Expected:                "BANANA",
 		},
 		{
-			Datum: SomeNullable("Cherry"),
-			Expected:           "Cherry",
+			Datum: SomethingNullable("Cherry"),
+			Expected:                "Cherry",
 		},
 		{
-			Datum: SomeNullable("dATE"),
-			Expected:           "dATE",
-		},
-
-
-
-		{
-			Datum: SomeNullable("Hello world!"),
-			Expected:           "Hello world!",
+			Datum: SomethingNullable("dATE"),
+			Expected:                "dATE",
 		},
 
 
 
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", math.MinInt64)),
-			Expected:           fmt.Sprintf("%d", math.MinInt64),
+			Datum: SomethingNullable("Hello world!"),
+			Expected:                "Hello world!",
+		},
+
+
+
+		{
+			Datum: SomethingNullable(fmt.Sprintf("%d", math.MinInt64)),
+			Expected:                fmt.Sprintf("%d", math.MinInt64),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", -5)),
-			Expected:           fmt.Sprintf("%d", -5),
+			Datum: SomethingNullable(fmt.Sprintf("%d", -5)),
+			Expected:                fmt.Sprintf("%d", -5),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", -4)),
-			Expected:           fmt.Sprintf("%d", -4),
+			Datum: SomethingNullable(fmt.Sprintf("%d", -4)),
+			Expected:                fmt.Sprintf("%d", -4),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", -3)),
-			Expected:           fmt.Sprintf("%d", -3),
+			Datum: SomethingNullable(fmt.Sprintf("%d", -3)),
+			Expected:                fmt.Sprintf("%d", -3),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", -2)),
-			Expected:           fmt.Sprintf("%d", -2),
+			Datum: SomethingNullable(fmt.Sprintf("%d", -2)),
+			Expected:                fmt.Sprintf("%d", -2),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", -1)),
-			Expected:           fmt.Sprintf("%d", -1),
+			Datum: SomethingNullable(fmt.Sprintf("%d", -1)),
+			Expected:                fmt.Sprintf("%d", -1),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", 0)),
-			Expected:           fmt.Sprintf("%d", 0),
+			Datum: SomethingNullable(fmt.Sprintf("%d", 0)),
+			Expected:                fmt.Sprintf("%d", 0),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", 1)),
-			Expected:           fmt.Sprintf("%d", 1),
+			Datum: SomethingNullable(fmt.Sprintf("%d", 1)),
+			Expected:                fmt.Sprintf("%d", 1),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", 2)),
-			Expected:           fmt.Sprintf("%d", 2),
+			Datum: SomethingNullable(fmt.Sprintf("%d", 2)),
+			Expected:                fmt.Sprintf("%d", 2),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", 3)),
-			Expected:           fmt.Sprintf("%d", 3),
+			Datum: SomethingNullable(fmt.Sprintf("%d", 3)),
+			Expected:                fmt.Sprintf("%d", 3),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", 4)),
-			Expected:           fmt.Sprintf("%d", 4),
+			Datum: SomethingNullable(fmt.Sprintf("%d", 4)),
+			Expected:                fmt.Sprintf("%d", 4),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", 5)),
-			Expected:           fmt.Sprintf("%d", 5),
+			Datum: SomethingNullable(fmt.Sprintf("%d", 5)),
+			Expected:                fmt.Sprintf("%d", 5),
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", math.MaxInt64)),
-			Expected:           fmt.Sprintf("%d", math.MaxInt64),
+			Datum: SomethingNullable(fmt.Sprintf("%d", math.MaxInt64)),
+			Expected:                fmt.Sprintf("%d", math.MaxInt64),
 		},
 	}
 
@@ -106,8 +106,8 @@ func TestNullableTypeString(t *testing.T) {
 				Datum    NullableType
 				Expected string
 			}{
-				Datum: SomeNullable(s),
-				Expected:           s,
+				Datum: SomethingNullable(s),
+				Expected:                s,
 			}
 			tests = append(tests, test)
 		}
@@ -121,8 +121,8 @@ func TestNullableTypeString(t *testing.T) {
 				Datum    NullableType
 				Expected string
 			}{
-				Datum: SomeNullable(s),
-				Expected:           s,
+				Datum: SomethingNullable(s),
+				Expected:                s,
 			}
 			tests = append(tests, test)
 		}

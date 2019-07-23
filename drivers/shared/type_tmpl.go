@@ -40,7 +40,7 @@ func (receiver *Type) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	*receiver = Some(target)
+	*receiver = Something(target)
 
 	return nil
 }
@@ -51,7 +51,7 @@ func (receiver Type) WhenNothing(fn func()) {
 	}
 }
 
-func (receiver Type) WhenSome(fn func({{.Type}})) {
+func (receiver Type) WhenSomething(fn func({{.Type}})) {
 	if Nothing() != receiver {
 		fn(receiver.value)
 	}
@@ -69,7 +69,7 @@ func Nothing() Type {
 	return Type{}
 }
 
-func Some(value {{.Type}}) Type {
+func Something(value {{.Type}}) Type {
 	return Type{
 		value:  value,
 		loaded: true,

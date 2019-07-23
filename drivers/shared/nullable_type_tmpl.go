@@ -40,7 +40,7 @@ func (receiver NullableType) WhenNull(fn func()) {
 	}
 }
 
-func (receiver NullableType) WhenSome(fn func({{.Type}})) {
+func (receiver NullableType) WhenSomething(fn func({{.Type}})) {
 	if NothingNullable() != receiver && Null() != receiver {
 		fn(receiver.value)
 	}
@@ -62,7 +62,7 @@ func (receiver *NullableType) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	*receiver = SomeNullable(target)
+	*receiver = SomethingNullable(target)
 
 	return nil
 }
@@ -82,7 +82,7 @@ func NothingNullable() NullableType {
 	return NullableType{}
 }
 
-func SomeNullable(value {{.Type}}) NullableType {
+func SomethingNullable(value {{.Type}}) NullableType {
 	return NullableType{
 		value:  value,
 		loaded: true,

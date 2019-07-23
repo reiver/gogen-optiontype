@@ -15,56 +15,56 @@ func TestNullableTypeInt64(t *testing.T) {
 		Expected int64
 	}{
 		{
-			Datum: SomeNullable(math.MinInt64),
-			Expected:           math.MinInt64,
+			Datum: SomethingNullable(math.MinInt64),
+			Expected:                math.MinInt64,
 		},
 		{
-			Datum: SomeNullable(-5),
-			Expected:           -5,
+			Datum: SomethingNullable(-5),
+			Expected:                -5,
 		},
 		{
-			Datum: SomeNullable(-4),
-			Expected:           -4,
+			Datum: SomethingNullable(-4),
+			Expected:                -4,
 		},
 		{
-			Datum: SomeNullable(-3),
-			Expected:           -3,
+			Datum: SomethingNullable(-3),
+			Expected:                -3,
 		},
 		{
-			Datum: SomeNullable(-2),
-			Expected:           -2,
+			Datum: SomethingNullable(-2),
+			Expected:                -2,
 		},
 		{
-			Datum: SomeNullable(-1),
-			Expected:           -1,
+			Datum: SomethingNullable(-1),
+			Expected:                -1,
 		},
 		{
-			Datum: SomeNullable(0),
-			Expected:           0,
+			Datum: SomethingNullable(0),
+			Expected:                0,
 		},
 		{
-			Datum: SomeNullable(1),
-			Expected:           1,
+			Datum: SomethingNullable(1),
+			Expected:                1,
 		},
 		{
-			Datum: SomeNullable(2),
-			Expected:           2,
+			Datum: SomethingNullable(2),
+			Expected:                2,
 		},
 		{
-			Datum: SomeNullable(3),
-			Expected:           3,
+			Datum: SomethingNullable(3),
+			Expected:                3,
 		},
 		{
-			Datum: SomeNullable(4),
-			Expected:           4,
+			Datum: SomethingNullable(4),
+			Expected:                4,
 		},
 		{
-			Datum: SomeNullable(5),
-			Expected:           5,
+			Datum: SomethingNullable(5),
+			Expected:                5,
 		},
 		{
-			Datum: SomeNullable(math.MaxInt64),
-			Expected:           math.MaxInt64,
+			Datum: SomethingNullable(math.MaxInt64),
+			Expected:                math.MaxInt64,
 		},
 	}
 
@@ -77,8 +77,8 @@ func TestNullableTypeInt64(t *testing.T) {
 				Datum    NullableType
 				Expected int64
 			}{
-				Datum: SomeNullable(x),
-				Expected:           x,
+				Datum: SomethingNullable(x),
+				Expected:                x,
 			}
 			tests = append(tests, test)
 		}
@@ -90,8 +90,8 @@ func TestNullableTypeInt64(t *testing.T) {
 				Datum    NullableType
 				Expected int64
 			}{
-				Datum: SomeNullable(y),
-				Expected:           y,
+				Datum: SomethingNullable(y),
+				Expected:                y,
 			}
 			tests = append(tests, test)
 		}

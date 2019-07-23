@@ -16,46 +16,46 @@ func TestNullableTypeValue(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum: SomeNullable("apple"),
-			Expected:           "apple",
+			Datum: SomethingNullable("apple"),
+			Expected:                "apple",
 		},
 		{
-			Datum: SomeNullable("BANANA"),
-			Expected:           "BANANA",
+			Datum: SomethingNullable("BANANA"),
+			Expected:                "BANANA",
 		},
 		{
-			Datum: SomeNullable("Cherry"),
-			Expected:           "Cherry",
+			Datum: SomethingNullable("Cherry"),
+			Expected:                "Cherry",
 		},
 		{
-			Datum: SomeNullable("dATE"),
-			Expected:           "dATE",
-		},
-
-
-
-		{
-			Datum: SomeNullable("Hello world!"),
-			Expected:           "Hello world!",
+			Datum: SomethingNullable("dATE"),
+			Expected:                "dATE",
 		},
 
 
 
 		{
-			Datum: SomeNullable("1"),
-			Expected:           "1",
+			Datum: SomethingNullable("Hello world!"),
+			Expected:                "Hello world!",
+		},
+
+
+
+		{
+			Datum: SomethingNullable("1"),
+			Expected:                "1",
 		},
 		{
-			Datum: SomeNullable("12"),
-			Expected:           "12",
+			Datum: SomethingNullable("12"),
+			Expected:                "12",
 		},
 		{
-			Datum: SomeNullable("-5"),
-			Expected:           "-5",
+			Datum: SomethingNullable("-5"),
+			Expected:                "-5",
 		},
 		{
-			Datum: SomeNullable(fmt.Sprintf("%d", math.MaxInt64)),
-			Expected:           fmt.Sprintf("%d", math.MaxInt64),
+			Datum: SomethingNullable(fmt.Sprintf("%d", math.MaxInt64)),
+			Expected:                fmt.Sprintf("%d", math.MaxInt64),
 		},
 	}
 

@@ -28,7 +28,7 @@ func TestTypeWhenNothing(t *testing.T) {
 		s := notChanged
 
 		var value {{.Type}}
-		Some(value).WhenNothing(func(){
+		Something(value).WhenNothing(func(){
 			s = changed
 		})
 
@@ -39,14 +39,14 @@ func TestTypeWhenNothing(t *testing.T) {
 	}
 }
 
-func TestTypeWhenSome(t *testing.T) {
+func TestTypeWhenSomething(t *testing.T) {
 	const notChanged = "not changed"
 	const changed    = "changed"
 
 	{
 		s := notChanged
 
-		Nothing().WhenSome(func(datum {{.Type}}){
+		Nothing().WhenSomething(func(datum {{.Type}}){
 			s = changed
 		})
 
@@ -60,7 +60,7 @@ func TestTypeWhenSome(t *testing.T) {
 		s := notChanged
 
 		var datum {{.Type}}
-		Some(datum).WhenSome(func(datum {{.Type}}){
+		Something(datum).WhenSomething(func(datum {{.Type}}){
 			s = changed
 		})
 

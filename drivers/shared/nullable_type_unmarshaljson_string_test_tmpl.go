@@ -35,7 +35,7 @@ func TestNullableTypeUnmarshalJSONStruct(t *testing.T) {
 		return
 	}
 
-	if expected, actual := SomeNullable("some-ID"), datum.ID; expected != actual {
+	if expected, actual := SomethingNullable("some-ID"), datum.ID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
 	}
@@ -58,7 +58,7 @@ func TestNullableTypeUnmarshalJSONStruct(t *testing.T) {
 		}
 	}
 
-	if expected, actual := SomeNullable("another-ID"),
+	if expected, actual := SomethingNullable("another-ID"),
 		datum.ParentID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
@@ -79,82 +79,82 @@ func TestNullableTypeUnmarshalJSON(t *testing.T) {
 
 
 		{
-			Datum:   []byte(`+"`"+`"apple"`+"`"+`),
-			Expected: SomeNullable("apple"),
+			Datum:        []byte(`+"`"+`"apple"`+"`"+`),
+			Expected: SomethingNullable("apple"),
 		},
 		{
-			Datum:   []byte(`+"`"+`"BANANA"`+"`"+`),
-			Expected: SomeNullable("BANANA"),
+			Datum:        []byte(`+"`"+`"BANANA"`+"`"+`),
+			Expected: SomethingNullable("BANANA"),
 		},
 		{
-			Datum:   []byte(`+"`"+`"Cherry"`+"`"+`),
-			Expected: SomeNullable("Cherry"),
+			Datum:        []byte(`+"`"+`"Cherry"`+"`"+`),
+			Expected: SomethingNullable("Cherry"),
 		},
 		{
-			Datum:   []byte(`+"`"+`"dATE"`+"`"+`),
-			Expected: SomeNullable("dATE"),
-		},
-
-
-
-		{
-			Datum:   []byte(`+"`"+`"Hello world!"`+"`"+`),
-			Expected: SomeNullable("Hello world!"),
+			Datum:        []byte(`+"`"+`"dATE"`+"`"+`),
+			Expected: SomethingNullable("dATE"),
 		},
 
 
 
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(math.MinInt64))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(math.MinInt64))),
+			Datum:        []byte(`+"`"+`"Hello world!"`+"`"+`),
+			Expected: SomethingNullable("Hello world!"),
+		},
+
+
+
+		{
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(math.MinInt64))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(math.MinInt64))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-5))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(-5))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-5))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(-5))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-4))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",  int64(-4))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-4))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",  int64(-4))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-3))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(-3))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-3))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(-3))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-2))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(-2))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-2))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(-2))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-1))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(-1))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(-1))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(-1))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(0))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(0))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(0))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(0))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(1))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(1))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(1))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(1))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(2))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(2))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(2))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(2))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(3))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(3))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(3))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(3))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(4))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(4))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(4))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(4))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(5))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(5))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(5))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(5))),
 		},
 		{
-			Datum:          []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(math.MaxInt64))),
-			Expected: SomeNullable(fmt.Sprintf(       "%d",        int64(math.MaxInt64))),
+			Datum:               []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, int64(math.MaxInt64))),
+			Expected: SomethingNullable(fmt.Sprintf(       "%d",        int64(math.MaxInt64))),
 		},
 	}
 
@@ -167,8 +167,8 @@ func TestNullableTypeUnmarshalJSON(t *testing.T) {
 				Datum    []byte
 				Expected NullableType
 			}{
-				Datum:    []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, x)),
-				Expected: SomeNullable(fmt.Sprintf( "%d",  x)),
+				Datum:         []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, x)),
+				Expected: SomethingNullable(fmt.Sprintf( "%d",  x)),
 			}
 			tests = append(tests, test)
 		}
@@ -180,8 +180,8 @@ func TestNullableTypeUnmarshalJSON(t *testing.T) {
 				Datum    []byte
 				Expected NullableType
 			}{
-				Datum:    []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, y)),
-				Expected: SomeNullable(fmt.Sprintf( "%d",  y)),
+				Datum:         []byte(fmt.Sprintf(`+"`"+`"%d"`+"`"+`, y)),
+				Expected: SomethingNullable(fmt.Sprintf( "%d",  y)),
 			}
 			tests = append(tests, test)
 		}

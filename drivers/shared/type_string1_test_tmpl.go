@@ -15,56 +15,56 @@ func TestTypeString(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum:                                Some(math.MinInt64),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", math.MinInt64),
+			Datum:                                Something(math.MinInt64),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", math.MinInt64),
 		},
 		{
-			Datum                               : Some(-5),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", -5),
+			Datum:                                Something(-5),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", -5),
 		},
 		{
-			Datum                               : Some(-4),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", -4),
+			Datum:                                Something(-4),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", -4),
 		},
 		{
-			Datum                               : Some(-3),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", -3),
+			Datum:                                Something(-3),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", -3),
 		},
 		{
-			Datum                               : Some(-2),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", -2),
+			Datum:                                Something(-2),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", -2),
 		},
 		{
-			Datum                               : Some(-1),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", -1),
+			Datum:                                Something(-1),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", -1),
 		},
 		{
-			Datum                               : Some(0),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", 0),
+			Datum:                                Something(0),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", 0),
 		},
 		{
-			Datum                               : Some(1),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", 1),
+			Datum:                                Something(1),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", 1),
 		},
 		{
-			Datum                               : Some(2),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", 2),
+			Datum:                                Something(2),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", 2),
 		},
 		{
-			Datum                               : Some(3),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", 3),
+			Datum:                                Something(3),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", 3),
 		},
 		{
-			Datum                               : Some(4),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", 4),
+			Datum:                                Something(4),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", 4),
 		},
 		{
-			Datum                               : Some(5),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", 5),
+			Datum:                                Something(5),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", 5),
 		},
 		{
-			Datum:                                Some(math.MaxInt64),
-			Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", math.MaxInt64),
+			Datum:                                Something(math.MaxInt64),
+			Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", math.MaxInt64),
 		},
 	}
 
@@ -77,8 +77,8 @@ func TestTypeString(t *testing.T) {
 				Datum Type
 				Expected string
 			}{
-				Datum:                                Some(x),
-				Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", x),
+				Datum:                                Something(x),
+				Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", x),
 			}
 			tests = append(tests, test)
 		}
@@ -90,8 +90,8 @@ func TestTypeString(t *testing.T) {
 				Datum Type
 				Expected string
 			}{
-				Datum:                                Some(y),
-				Expected: fmt.Sprintf("{{.Pkg}}.Some(%d)", y),
+				Datum:                                Something(y),
+				Expected: fmt.Sprintf("{{.Pkg}}.Something(%d)", y),
 			}
 			tests = append(tests, test)
 		}

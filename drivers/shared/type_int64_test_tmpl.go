@@ -15,56 +15,56 @@ func TestTypeInt64(t *testing.T) {
 		Expected int64
 	}{
 		{
-			Datum:    Some(math.MinInt64),
-			Expected:      math.MinInt64,
+			Datum: Something(math.MinInt64),
+			Expected:        math.MinInt64,
 		},
 		{
-			Datum:    Some(-5),
-			Expected:      -5,
+			Datum: Something(-5),
+			Expected:        -5,
 		},
 		{
-			Datum:    Some(-4),
-			Expected:      -4,
+			Datum: Something(-4),
+			Expected:        -4,
 		},
 		{
-			Datum:    Some(-3),
-			Expected:      -3,
+			Datum: Something(-3),
+			Expected:        -3,
 		},
 		{
-			Datum:    Some(-2),
-			Expected:      -2,
+			Datum: Something(-2),
+			Expected:        -2,
 		},
 		{
-			Datum:    Some(-1),
-			Expected:      -1,
+			Datum: Something(-1),
+			Expected:        -1,
 		},
 		{
-			Datum:    Some(0),
-			Expected:      0,
+			Datum: Something(0),
+			Expected:        0,
 		},
 		{
-			Datum:    Some(1),
-			Expected:      1,
+			Datum: Something(1),
+			Expected:        1,
 		},
 		{
-			Datum:    Some(2),
-			Expected:      2,
+			Datum: Something(2),
+			Expected:        2,
 		},
 		{
-			Datum:    Some(3),
-			Expected:      3,
+			Datum: Something(3),
+			Expected:        3,
 		},
 		{
-			Datum:    Some(4),
-			Expected:      4,
+			Datum: Something(4),
+			Expected:        4,
 		},
 		{
-			Datum:    Some(5),
-			Expected:      5,
+			Datum: Something(5),
+			Expected:        5,
 		},
 		{
-			Datum:    Some(math.MaxInt64),
-			Expected:      math.MaxInt64,
+			Datum: Something(math.MaxInt64),
+			Expected:        math.MaxInt64,
 		},
 	}
 
@@ -77,8 +77,8 @@ func TestTypeInt64(t *testing.T) {
 				Datum    Type
 				Expected int64
 			}{
-				Datum:    Some(x),
-				Expected: x,
+				Datum: Something(x),
+				Expected:        x,
 			}
 			tests = append(tests, test)
 		}
@@ -90,8 +90,8 @@ func TestTypeInt64(t *testing.T) {
 				Datum    Type
 				Expected int64
 			}{
-				Datum:    Some(y),
-				Expected: y,
+				Datum: Something(y),
+				Expected:        y,
 			}
 			tests = append(tests, test)
 		}

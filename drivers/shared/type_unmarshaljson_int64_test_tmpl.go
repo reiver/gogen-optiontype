@@ -35,7 +35,7 @@ func TestTypeUnmarshalJSONStruct(t *testing.T) {
 		return
 	}
 
-	if expected, actual := Some(5), datum.ID; expected != actual {
+	if expected, actual := Something(5), datum.ID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
 	}
@@ -58,7 +58,7 @@ func TestTypeUnmarshalJSONStruct(t *testing.T) {
 		}
 	}
 
-	if expected, actual := Some(2),
+	if expected, actual := Something(2),
 		datum.ParentID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
@@ -73,55 +73,55 @@ func TestTypeUnmarshalJSON(t *testing.T) {
 	}{
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(math.MinInt64))),
-			Expected:                        Some(math.MinInt64),
+			Expected:                   Something(math.MinInt64),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-5))),
-			Expected:                        Some(-5),
+			Expected:                   Something(-5),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-4))),
-			Expected:                        Some(-4),
+			Expected:                   Something(-4),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-3))),
-			Expected:                        Some(-3),
+			Expected:                   Something(-3),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-2))),
-			Expected:                        Some(-2),
+			Expected:                   Something(-2),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-1))),
-			Expected:                        Some(-1),
+			Expected:                   Something(-1),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(0))),
-			Expected:                        Some(0),
+			Expected:                   Something(0),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(1))),
-			Expected:                        Some(1),
+			Expected:                   Something(1),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(2))),
-			Expected:                        Some(2),
+			Expected:                   Something(2),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(3))),
-			Expected:                        Some(3),
+			Expected:                   Something(3),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(4))),
-			Expected:                        Some(4),
+			Expected:                   Something(4),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(5))),
-			Expected:                        Some(5),
+			Expected:                   Something(5),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(math.MaxInt64))),
-			Expected:                        Some(math.MaxInt64),
+			Expected:                   Something(math.MaxInt64),
 		},
 	}
 
@@ -135,7 +135,7 @@ func TestTypeUnmarshalJSON(t *testing.T) {
 				Expected Type
 			}{
 				Datum: []byte(fmt.Sprintf("%d", x)),
-				Expected:                  Some(x),
+				Expected:             Something(x),
 			}
 			tests = append(tests, test)
 		}
@@ -148,7 +148,7 @@ func TestTypeUnmarshalJSON(t *testing.T) {
 				Expected Type
 			}{
 				Datum: []byte(fmt.Sprintf("%d", y)),
-				Expected:                  Some(y),
+				Expected:             Something(y),
 			}
 			tests = append(tests, test)
 		}

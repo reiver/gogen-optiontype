@@ -31,168 +31,168 @@ func TestNullableTypeScan(t *testing.T) {
 
 
 		{
-			Datum:            Some("apple"),
-			Expected: SomeNullable("apple"),
+			Datum:            Something("apple"),
+			Expected: SomethingNullable("apple"),
 		},
 		{
-			Datum:            Some("BANANA"),
-			Expected: SomeNullable("BANANA"),
+			Datum:            Something("BANANA"),
+			Expected: SomethingNullable("BANANA"),
 		},
 		{
-			Datum:            Some("Cherry"),
-			Expected: SomeNullable("Cherry"),
+			Datum:            Something("Cherry"),
+			Expected: SomethingNullable("Cherry"),
 		},
 		{
-			Datum:            Some("dATE"),
-			Expected: SomeNullable("dATE"),
+			Datum:            Something("dATE"),
+			Expected: SomethingNullable("dATE"),
 		},
 
 
 
 		{
-			Datum:    SomeNullable("apple"),
-			Expected: SomeNullable("apple"),
+			Datum:    SomethingNullable("apple"),
+			Expected: SomethingNullable("apple"),
 		},
 		{
-			Datum:    SomeNullable("BANANA"),
-			Expected: SomeNullable("BANANA"),
+			Datum:    SomethingNullable("BANANA"),
+			Expected: SomethingNullable("BANANA"),
 		},
 		{
-			Datum:    SomeNullable("Cherry"),
-			Expected: SomeNullable("Cherry"),
+			Datum:    SomethingNullable("Cherry"),
+			Expected: SomethingNullable("Cherry"),
 		},
 		{
-			Datum:    SomeNullable("dATE"),
-			Expected: SomeNullable("dATE"),
+			Datum:    SomethingNullable("dATE"),
+			Expected: SomethingNullable("dATE"),
 		},
 
 
 
 		{
 			Datum:                 "apple",
-			Expected: SomeNullable("apple"),
+			Expected: SomethingNullable("apple"),
 		},
 		{
 			Datum:                 "BANANA",
-			Expected: SomeNullable("BANANA"),
+			Expected: SomethingNullable("BANANA"),
 		},
 		{
 			Datum:                 "Cherry",
-			Expected: SomeNullable("Cherry"),
+			Expected: SomethingNullable("Cherry"),
 		},
 		{
 			Datum:                 "dATE",
-			Expected: SomeNullable("dATE"),
+			Expected: SomethingNullable("dATE"),
 		},
 
 
 
 		{
 			Datum:                 fmt.Sprintf("%d", math.MinInt64),
-			Expected: SomeNullable(fmt.Sprintf("%d", math.MinInt64)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", math.MinInt64)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", -5),
-			Expected: SomeNullable(fmt.Sprintf("%d", -5)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -5)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", -4),
-			Expected: SomeNullable(fmt.Sprintf("%d", -4)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -4)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", -3),
-			Expected: SomeNullable(fmt.Sprintf("%d", -3)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -3)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", -2),
-			Expected: SomeNullable(fmt.Sprintf("%d", -2)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -2)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", -1),
-			Expected: SomeNullable(fmt.Sprintf("%d", -1)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -1)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", 0),
-			Expected: SomeNullable(fmt.Sprintf("%d", 0)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 0)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", 1),
-			Expected: SomeNullable(fmt.Sprintf("%d", 1)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 1)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", 2),
-			Expected: SomeNullable(fmt.Sprintf("%d", 2)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 2)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", 3),
-			Expected: SomeNullable(fmt.Sprintf("%d", 3)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 3)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", 4),
-			Expected: SomeNullable(fmt.Sprintf("%d", 4)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 4)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", 5),
-			Expected: SomeNullable(fmt.Sprintf("%d", 5)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 5)),
 		},
 		{
 			Datum:                 fmt.Sprintf("%d", math.MaxInt64),
-			Expected: SomeNullable(fmt.Sprintf("%d", math.MaxInt64)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", math.MaxInt64)),
 		},
 
 
 
 		{
 			Datum:          []byte(fmt.Sprintf("%d", math.MinInt64)),
-			Expected: SomeNullable(fmt.Sprintf("%d", math.MinInt64)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", math.MinInt64)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", -5)),
-			Expected: SomeNullable(fmt.Sprintf("%d", -5)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -5)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", -4)),
-			Expected: SomeNullable(fmt.Sprintf("%d", -4)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -4)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", -3)),
-			Expected: SomeNullable(fmt.Sprintf("%d", -3)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -3)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", -2)),
-			Expected: SomeNullable(fmt.Sprintf("%d", -2)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -2)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", -1)),
-			Expected: SomeNullable(fmt.Sprintf("%d", -1)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", -1)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", 0)),
-			Expected: SomeNullable(fmt.Sprintf("%d", 0)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 0)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", 1)),
-			Expected: SomeNullable(fmt.Sprintf("%d", 1)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 1)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", 2)),
-			Expected: SomeNullable(fmt.Sprintf("%d", 2)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 2)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", 3)),
-			Expected: SomeNullable(fmt.Sprintf("%d", 3)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 3)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", 4)),
-			Expected: SomeNullable(fmt.Sprintf("%d", 4)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 4)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", 5)),
-			Expected: SomeNullable(fmt.Sprintf("%d", 5)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", 5)),
 		},
 		{
 			Datum:          []byte(fmt.Sprintf("%d", math.MaxInt64)),
-			Expected: SomeNullable(fmt.Sprintf("%d", math.MaxInt64)),
+			Expected: SomethingNullable(fmt.Sprintf("%d", math.MaxInt64)),
 		},
 	}
 
@@ -208,7 +208,7 @@ func TestNullableTypeScan(t *testing.T) {
 				Expected NullableType
 			}{
 				Datum:                 s,
-				Expected: SomeNullable(s),
+				Expected: SomethingNullable(s),
 			}
 			tests = append(tests, test)
 		}
@@ -223,7 +223,7 @@ func TestNullableTypeScan(t *testing.T) {
 				Expected NullableType
 			}{
 				Datum:                 s,
-				Expected: SomeNullable(s),
+				Expected: SomethingNullable(s),
 			}
 			tests = append(tests, test)
 		}
@@ -237,7 +237,7 @@ func TestNullableTypeScan(t *testing.T) {
 				Expected NullableType
 			}{
 				Datum:                 b,
-				Expected: SomeNullable(s),
+				Expected: SomethingNullable(s),
 			}
 			tests = append(tests, test)
 		}
@@ -253,7 +253,7 @@ func TestNullableTypeScan(t *testing.T) {
 				Expected NullableType
 			}{
 				Datum:                 b,
-				Expected: SomeNullable(s),
+				Expected: SomethingNullable(s),
 			}
 			tests = append(tests, test)
 		}

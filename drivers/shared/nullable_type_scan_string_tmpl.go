@@ -32,15 +32,15 @@ func (receiver *NullableType) Scan(src interface{}) error {
 			if nil != err {
 				return fmt.Errorf("Problem unwrapping %T: (%T) %v", t, err, err)
 			}
-			*receiver = SomeNullable(datum)
+			*receiver = SomethingNullable(datum)
 		}
 		return nil
 	case string:
-		*receiver = SomeNullable(t)
+		*receiver = SomethingNullable(t)
 		return nil
 	case []byte:
 		s := string(t)
-		*receiver = SomeNullable(s)
+		*receiver = SomethingNullable(s)
 		return nil
 	default:
 		return fmt.Errorf("Cannot scan something of type %T into an %T.", src, *receiver)

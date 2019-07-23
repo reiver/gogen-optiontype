@@ -20,14 +20,14 @@ func (receiver *Type) Scan(src interface{}) error {
 		*receiver = t
 		return nil
 	case int64:
-		*receiver = Some(t)
+		*receiver = Something(t)
 		return nil
 	case string:
 		i64, err := strconv.ParseInt(t, 10, 64)
 		if nil != err {
 			return err
 		}
-		*receiver = Some(i64)
+		*receiver = Something(i64)
 		return nil
 	case []byte:
 		s := string(t)
@@ -35,7 +35,7 @@ func (receiver *Type) Scan(src interface{}) error {
 		if nil != err {
 			return err
 		}
-		*receiver = Some(i64)
+		*receiver = Something(i64)
 		return nil
 	default:
 		return fmt.Errorf("Cannot scan something of type %T into an %T.", src, *receiver)

@@ -22,7 +22,7 @@ func TestTypeMarshalJSONStruct(t *testing.T) {
 
 	var datum MyThing
 
-	datum.ID = Some("some-ID")
+	datum.ID = Something("some-ID")
 	datum.EMail = "joeblow@example.net"
 	{
 		tm, err := time.Parse(time.RFC3339, "2017-04-12T13:02:28Z")
@@ -33,7 +33,7 @@ func TestTypeMarshalJSONStruct(t *testing.T) {
 
 		datum.WhenCreated = tm
 	}
-	datum.ParentID = Some("another-ID")
+	datum.ParentID = Something("another-ID")
 
 	actualBytes, err := json.Marshal(datum)
 	if nil != err {
@@ -63,82 +63,82 @@ func TestTypeMarshalJSON(t *testing.T) {
 		Expected string
 	}{
 		{
-			Datum:      Some("apple"),
+			Datum: Something("apple"),
 			Expected: `+"`"+`"apple"`+"`"+`,
 		},
 		{
-			Datum:      Some("BANANA"),
+			Datum: Something("BANANA"),
 			Expected: `+"`"+`"BANANA"`+"`"+`,
 		},
 		{
-			Datum:      Some("Cherry"),
+			Datum: Something("Cherry"),
 			Expected: `+"`"+`"Cherry"`+"`"+`,
 		},
 		{
-			Datum:      Some("dATE"),
+			Datum: Something("dATE"),
 			Expected: `+"`"+`"dATE"`+"`"+`,
 		},
 
 
 
 		{
-			Datum:      Some("Hello world!"),
+			Datum: Something("Hello world!"),
 			Expected: `+"`"+`"Hello world!"`+"`"+`,
 		},
 
 
 
 		{
-			Datum: Some(fmt.Sprintf(       "%d",        math.MinInt64)),
-			Expected:   fmt.Sprintf(`+"`"+`"%d"`+"`"+`, math.MinInt64),
+			Datum: Something(fmt.Sprintf(       "%d",        math.MinInt64)),
+			Expected:        fmt.Sprintf(`+"`"+`"%d"`+"`"+`, math.MinInt64),
 		},
 		{
-			Datum:      Some("-5"),
+			Datum: Something("-5"),
 			Expected: `+"`"+`"-5"`+"`"+`,
 		},
 		{
-			Datum:      Some("-4"),
+			Datum: Something("-4"),
 			Expected: `+"`"+`"-4"`+"`"+`,
 		},
 		{
-			Datum:      Some("-3"),
+			Datum: Something("-3"),
 			Expected: `+"`"+`"-3"`+"`"+`,
 		},
 		{
-			Datum:      Some("-2"),
+			Datum: Something("-2"),
 			Expected: `+"`"+`"-2"`+"`"+`,
 		},
 		{
-			Datum:      Some("-1"),
+			Datum: Something("-1"),
 			Expected: `+"`"+`"-1"`+"`"+`,
 		},
 		{
-			Datum:      Some("0"),
+			Datum: Something("0"),
 			Expected: `+"`"+`"0"`+"`"+`,
 		},
 		{
-			Datum:      Some("1"),
+			Datum: Something("1"),
 			Expected: `+"`"+`"1"`+"`"+`,
 		},
 		{
-			Datum:      Some("2"),
+			Datum: Something("2"),
 			Expected: `+"`"+`"2"`+"`"+`,
 		},
 		{
-			Datum:      Some("3"),
+			Datum: Something("3"),
 			Expected: `+"`"+`"3"`+"`"+`,
 		},
 		{
-			Datum:      Some("4"),
+			Datum: Something("4"),
 			Expected: `+"`"+`"4"`+"`"+`,
 		},
 		{
-			Datum:      Some("5"),
+			Datum: Something("5"),
 			Expected: `+"`"+`"5"`+"`"+`,
 		},
 		{
-			Datum: Some(fmt.Sprintf(       "%d",        math.MaxInt64)),
-			Expected:   fmt.Sprintf(`+"`"+`"%d"`+"`"+`, math.MaxInt64),
+			Datum: Something(fmt.Sprintf(       "%d",        math.MaxInt64)),
+			Expected:        fmt.Sprintf(`+"`"+`"%d"`+"`"+`, math.MaxInt64),
 		},
 	}
 
@@ -151,8 +151,8 @@ func TestTypeMarshalJSON(t *testing.T) {
 				Datum    Type
 				Expected string
 			}{
-				Datum: Some(fmt.Sprintf(       "%d",        x)),
-				Expected:   fmt.Sprintf(`+"`"+`"%d"`+"`"+`, x),
+				Datum: Something(fmt.Sprintf(       "%d",        x)),
+				Expected:        fmt.Sprintf(`+"`"+`"%d"`+"`"+`, x),
 			}
 			tests = append(tests, test)
 		}
@@ -164,8 +164,8 @@ func TestTypeMarshalJSON(t *testing.T) {
 				Datum    Type
 				Expected string
 			}{
-				Datum: Some(fmt.Sprintf(       "%d",        y)),
-				Expected:   fmt.Sprintf(`+"`"+`"%d"`+"`"+`, y),
+				Datum: Something(fmt.Sprintf(       "%d",        y)),
+				Expected:        fmt.Sprintf(`+"`"+`"%d"`+"`"+`, y),
 			}
 			tests = append(tests, test)
 		}

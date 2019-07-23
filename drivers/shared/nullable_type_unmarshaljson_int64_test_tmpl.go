@@ -35,7 +35,7 @@ func TestNullableTypeUnmarshalJSONStruct(t *testing.T) {
 		return
 	}
 
-	if expected, actual := SomeNullable(5), datum.ID; expected != actual {
+	if expected, actual := SomethingNullable(5), datum.ID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
 	}
@@ -58,7 +58,7 @@ func TestNullableTypeUnmarshalJSONStruct(t *testing.T) {
 		}
 	}
 
-	if expected, actual := SomeNullable(2),
+	if expected, actual := SomethingNullable(2),
 		datum.ParentID; expected != actual {
 		t.Errorf("Expected (%T) %v, but actually got (%T) %v", expected, expected, actual, actual)
 		return
@@ -80,55 +80,55 @@ func TestNullableTypeUnmarshalJSON(t *testing.T) {
 
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(math.MinInt64))),
-			Expected:                SomeNullable(math.MinInt64),
+			Expected:           SomethingNullable(math.MinInt64),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-5))),
-			Expected:                SomeNullable(-5),
+			Expected:           SomethingNullable(-5),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-4))),
-			Expected:                SomeNullable(-4),
+			Expected:           SomethingNullable(-4),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-3))),
-			Expected:                SomeNullable(-3),
+			Expected:           SomethingNullable(-3),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-2))),
-			Expected:                SomeNullable(-2),
+			Expected:           SomethingNullable(-2),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(-1))),
-			Expected:                SomeNullable(-1),
+			Expected:           SomethingNullable(-1),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(0))),
-			Expected:                SomeNullable(0),
+			Expected:           SomethingNullable(0),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(1))),
-			Expected:                SomeNullable(1),
+			Expected:           SomethingNullable(1),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(2))),
-			Expected:                SomeNullable(2),
+			Expected:           SomethingNullable(2),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(3))),
-			Expected:                SomeNullable(3),
+			Expected:           SomethingNullable(3),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(4))),
-			Expected:                SomeNullable(4),
+			Expected:           SomethingNullable(4),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(5))),
-			Expected:                SomeNullable(5),
+			Expected:           SomethingNullable(5),
 		},
 		{
 			Datum: []byte(fmt.Sprintf("%d", int64(math.MaxInt64))),
-			Expected:                SomeNullable(math.MaxInt64),
+			Expected:           SomethingNullable(math.MaxInt64),
 		},
 	}
 
@@ -142,7 +142,7 @@ func TestNullableTypeUnmarshalJSON(t *testing.T) {
 				Expected NullableType
 			}{
 				Datum: []byte(fmt.Sprintf("%d", x)),
-				Expected:          SomeNullable(x),
+				Expected:     SomethingNullable(x),
 			}
 			tests = append(tests, test)
 		}
@@ -155,7 +155,7 @@ func TestNullableTypeUnmarshalJSON(t *testing.T) {
 				Expected NullableType
 			}{
 				Datum: []byte(fmt.Sprintf("%d", y)),
-				Expected:          SomeNullable(y),
+				Expected:     SomethingNullable(y),
 			}
 			tests = append(tests, test)
 		}
