@@ -25,6 +25,14 @@ func (receiver Type) MarshalJSON() ([]byte, error) {
 	return json.Marshal(receiver.value)
 }
 
+func (receiver Type) Then(fn func({{.Type}})Type) Type {
+	if Nothing() == receiver {
+		return receiver
+	}
+
+	return fn(receiver.value)
+}
+
 func (receiver *Type) UnmarshalJSON(b []byte) error {
 	if nil == receiver {
 		return errNilReceiver

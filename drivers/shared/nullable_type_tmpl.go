@@ -28,6 +28,17 @@ func (receiver NullableType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(receiver.value)
 }
 
+func (receiver NullableType) Then(fn func({{.Type}})NullableType) NullableType {
+	if NothingNullable() == receiver {
+		return receiver
+	}
+	if Null() == receiver {
+		return receiver
+	}
+
+	return fn(receiver.value)
+}
+
 func (receiver NullableType) WhenNothing(fn func()) {
 	if NothingNullable() == receiver {
 		fn()
