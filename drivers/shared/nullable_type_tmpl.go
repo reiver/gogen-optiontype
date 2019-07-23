@@ -50,6 +50,19 @@ func (receiver NullableType) Then(fn func({{.Type}})NullableType) NullableType {
 	return fn(receiver.value)
 }
 
+func (receiver NullableType) Unwrap() ({{.Type}}, bool) {
+	if NothingNullable() == receiver {
+		var doesNotMatter {{.Type}}
+		return doesNotMatter, false
+	}
+	if Null() == receiver {
+		var doesNotMatter {{.Type}}
+		return doesNotMatter, false
+	}
+
+	return receiver.value, true
+}
+
 func (receiver NullableType) WhenNothing(fn func()) {
 	if NothingNullable() == receiver {
 		fn()

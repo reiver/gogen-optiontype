@@ -61,6 +61,15 @@ func (receiver *Type) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (receiver Type) Unwrap() ({{.Type}}, bool) {
+	if Nothing() == receiver {
+		var doesNotMatter {{.Type}}
+		return doesNotMatter, false
+	}
+
+	return receiver.value, true
+}
+
 func (receiver Type) WhenNothing(fn func()) {
 	if Nothing() == receiver {
 		fn()
