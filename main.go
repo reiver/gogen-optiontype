@@ -74,7 +74,7 @@ func main() {
 				return
 			}
 
-			fileName, writerTo, err := renderer. WriterTo(gendriver.RendererParams{
+			fileName, writerTo, err := renderer.WriterTo(gendriver.RendererParams{
 				NoHeader: flags.OneFile,
 				Pkg:      flags.Pkg,
 				Type:     flags.Type,
