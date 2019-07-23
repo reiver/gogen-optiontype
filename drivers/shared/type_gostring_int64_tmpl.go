@@ -1,13 +1,13 @@
 package shared
 
 var (
-	TypeGoStringImports = map[string]string{
+	TypeGoStringInt64Imports = map[string]string{
 		"fmt":"",
 	}
 )
 
 const (
-	TypeGoStringTmpl =
+	TypeGoStringInt64Tmpl =
 `
 func (receiver Type) GoString() string {
 	if Nothing() == receiver {

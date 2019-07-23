@@ -12,7 +12,7 @@ func init() {
 
 	renderer := gendriver.DefaultRenderer{
 		FileName: fileName,
-		FileTmpl: shared.NullableTypeGoStringTestTmpl,
+		FileTmpl: shared.NullableTypeGoStringStringTestTmpl,
 	}
 
 

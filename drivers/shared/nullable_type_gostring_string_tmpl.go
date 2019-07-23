@@ -1,13 +1,13 @@
 package shared
 
 var (
-	NullableTypeGoStringImports = map[string]string{
+	NullableTypeGoStringStringImports = map[string]string{
 		"fmt":"",
 	}
 )
 
 const (
-	NullableTypeGoStringTmpl =
+	NullableTypeGoStringStringTmpl =
 `
 func (receiver NullableType) GoString() string {
 	if NothingNullable() == receiver {
@@ -17,7 +17,7 @@ func (receiver NullableType) GoString() string {
 		return "{{.Pkg}}.Null()"
 	}
 
-	return fmt.Sprintf("{{.Pkg}}.SomethingNullable(%d)", receiver.value)
+	return fmt.Sprintf("{{.Pkg}}.SomethingNullable(%q)", receiver.value)
 }
 `
 )

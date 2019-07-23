@@ -1,7 +1,7 @@
 package shared
 
 const (
-	TypeGoStringTestTmpl =
+	TypeGoStringInt64TestTmpl =
 `
 import (
 	"fmt"

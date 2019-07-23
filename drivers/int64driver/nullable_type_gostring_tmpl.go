@@ -13,8 +13,8 @@ func init() {
 	renderer := gendriver.DefaultRenderer{
 		FileIsNotTest: true,
 		FileName:    fileName,
-		FileImports: shared.NullableTypeGoStringImports,
-		FileTmpl:    shared.NullableTypeGoStringTmpl,
+		FileImports: shared.NullableTypeGoStringInt64Imports,
+		FileTmpl:    shared.NullableTypeGoStringInt64Tmpl,
 	}
 
 

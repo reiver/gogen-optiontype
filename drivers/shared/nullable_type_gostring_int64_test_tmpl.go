@@ -1,7 +1,7 @@
 package shared
 
 const (
-	NullableTypeGoStringTestTmpl =
+	NullableTypeGoStringInt64TestTmpl =
 `
 import (
 	"fmt"
